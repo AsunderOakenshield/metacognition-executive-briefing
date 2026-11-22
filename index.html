@@ -489,6 +489,26 @@ nav{column-gap:14px;row-gap:6px}
 @media screen and (max-width:600px){
  #decision .research-layout #background-copy{border-inline-start:0;padding-inline-start:0}
 }
+#decision .implication{transform:translateY(-1.4cqw)}
+#decision .decision-summary #background-heading{font-weight:400}
+#decision .research-layout{position:relative}
+#decision .research-layout #background-copy{border-inline-start:0}
+#decision .research-layout::after{
+ content:"";position:absolute;inset-inline-start:40%;top:12%;bottom:12%;border-inline-start:1px solid var(--line)
+}
+.approach-emphasis{text-decoration:underline;text-decoration-color:var(--highlight);text-decoration-thickness:.07em;text-underline-offset:.14em}
+.approach-layout{gap:3.4cqw}
+.approach-layout .evaluation-map{transform:translateX(1.15cqw)}
+[dir="rtl"] .approach-layout .evaluation-map{transform:translateX(-1.15cqw)}
+.map-column{font-size:26px}
+.map-level{font-weight:400}
+@media screen and (max-width:900px){
+ .approach-layout .evaluation-map,[dir="rtl"] .approach-layout .evaluation-map{transform:none}
+}
+@media screen and (max-width:600px){
+ #decision .implication{transform:none}
+ #decision .research-layout::after{display:none}
+}
 </style></head>
 <body><main>
 <section id="decision" aria-labelledby="decision-title"><div class="frame">
@@ -513,14 +533,14 @@ nav{column-gap:14px;row-gap:6px}
 </div></section>
 <section id="evidence" aria-labelledby="evidence-title"><div class="frame">
 <div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="Decision">01</a><a href="#evidence" data-page="evidence" aria-label="02 · THE APPROACH" aria-current="page">02 <span class="tab-name">THE APPROACH</span></a></div>
-<div class="approach-layout"><h2 id="evidence-title">A FULLER understanding of impact,<br> at EVERY LEVEL.</h2>
+<div class="approach-layout"><h2 id="evidence-title">A <span class="approach-emphasis">fuller</span> understanding of impact,<br> at <span class="approach-emphasis">every level</span>.</h2>
 <figure class="evaluation-map">
-<svg viewBox="-12 -4 1060 499" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="evaluation-map-title evaluation-map-desc">
+<svg viewBox="-12 -15 1060 510" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="evaluation-map-title evaluation-map-desc">
 <title id="evaluation-map-title">Evidence sources by evaluation level</title>
 <desc id="evaluation-map-desc">Five aligned levels map specific evidence sources: global teacher and student surveys, school leadership interviews, grade-level platform usage records, classroom observations, and individual student test scores.</desc>
 <defs><linearGradient id="map-glass" x2="100%" y2="100%"><stop class="map-glass-light"/><stop class="map-glass-dark" offset="1"/></linearGradient></defs>
-<text class="map-column map-column-evidence" x="237" y="17" id="evidence-column">Triangulate evidence.</text>
-<text class="map-column map-column-level" x="895" y="17" id="levels-column">Evaluate across levels.</text>
+<text class="map-column map-column-evidence" x="237" y="10" id="evidence-column">Triangulate evidence.</text>
+<text class="map-column map-column-level" x="895" y="10" id="levels-column">Evaluate across levels.</text>
 <path class="map-spine" d="M607 92V481"/>
 <g class="map-layer" transform="translate(0 0)"><path class="map-plane" d="M437 87 607 66 777 87 607 111Z"/><path class="iso-rim" d="M437 87 607 111 777 87"/><circle class="iso-node" cx="607" cy="111" r="1.8"/><path class="iso-dome" d="M437 87Q607 -9 777 87"/><g class="map-world" transform="translate(607 70) scale(1.36 .58)"><path d="M-89-10l9-7 15-3 8-7 19 4 3 8-9 5-2 9-10 2-4 6-8-3-6-10-11 1z M-59 8l11 3 12 7-2 8-7 7-5 11-4-10-6-7 2-8z M-28-24l13-6 9 4-4 9-11 2z M-11-7l8-7 14 3 4-4 17-3 13-6 26 1 20 6 2 8-12 2-8 12-12 1-8 9-9-6-7 1-4-9-9 3-5-7-9 1-7 7-9-3z M-4 5l12-3 15 8-3 13-8 12-5-1-5-13-7-5z M64 24l9-8 14 3 9 8-5 8-18 1z M36 17l10 2 8 5-11-1z"/></g><text class="map-source" x="237" y="70" id="teacher-surveys">Teacher Surveys · 2,050</text><text class="map-source" x="237" y="93" id="student-surveys">Student Surveys · 15,790</text><text class="map-level" x="895" y="82" id="level-global">Global</text></g>
 <g class="map-layer" transform="translate(0 18)"><path class="map-plane" d="M454 161 607 140 760 161 607 185Z"/><path class="iso-rim" d="M454 161 607 185 760 161"/><circle class="iso-node" cx="607" cy="185" r="1.8"/><g class="map-outline" transform="translate(607 153)"><path class="iso-fill" d="M-49 2v-20l22-8 27 8 27-8 22 8V2L28 10 0 3-28 10Z"/><path class="iso-fill" d="M-19 10v-22L0-24l19 12v22Z"/><path d="M-22-10 0-25 22-10M0-25v-11m0 0q6-4 12 0v6q-6-4-12 0M-6 10V-2H6v12m-6-12v12M-41-13v9m7-7v9m7-7v9m54-9v9m7-11v9m7-11v9"/><circle cy="-12" r="3"/></g><text class="map-source" x="237" y="156" id="leadership-interviews">Leadership Interviews · 64</text><text class="map-level" x="895" y="156" id="level-school">School</text></g>

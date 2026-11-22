@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Metacognition | Executive Briefing</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#e9edf3;color:#142237;font-family:'Segoe UI',Arial,sans-serif}
+main{display:grid;justify-items:center;gap:24px;padding:24px 16px 74px}
+section{container-type:inline-size;width:min(1280px,100%);background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 12px 36px #1422371a}
+.frame{aspect-ratio:16/9;display:flex;flex-direction:column;padding:3.8cqw 5cqw 3cqw}
+#decision{background:linear-gradient(150deg,#fff 48%,#edf5ff)}
+p,h1,h2,h3,figure{margin:0}
+.kicker{font-size:1.08cqw;font-weight:750;letter-spacing:.16em;color:#2057a4;margin-bottom:.9cqw}
+h1,h2{font-size:5cqw;letter-spacing:-.06em;line-height:1.04}
+.takeaway{border-top:1px solid #cad6e4;padding-top:1cqw;color:#183c6c;font-size:1.65cqw;font-weight:700}
+.scope{display:flex;gap:2.2cqw;margin:1.1cqw 0;color:#465b75;font-size:1.2cqw}
+.scope strong{color:#173d73;font-size:1.7cqw}
+.evidence{display:grid;grid-template-columns:minmax(0,2.35fr) minmax(0,1fr);gap:2.5cqw;align-items:center;flex:1}
+.chart{background:#f7f9fd;border:1px solid #dce5f1;border-radius:12px;padding:1cqw 1.25cqw}
+figcaption{font-size:1.42cqw;font-weight:750}
+.meta,.foot,.source{color:#465b75;font-size:.96cqw}
+.meta{margin:.2cqw 0 .5cqw}
+table{border-collapse:separate;border-spacing:.21cqw .15cqw;width:100%;table-layout:fixed;text-align:center;font-size:.87cqw;font-variant-numeric:tabular-nums}
+th{color:#39516f;font-weight:650}
+th:first-child{width:15%;text-align:left;white-space:nowrap}
+td{border-radius:3px}
+.foot{display:flex;justify-content:flex-end;align-items:center;margin-top:.4cqw}
+.legend{display:inline-flex;align-items:center;gap:.4cqw}
+.ramp{width:5cqw;height:.65cqw;border-radius:8px;background:linear-gradient(90deg,hsl(215 76% 96%),hsl(215 76% 31%));border:1px solid #cedaeb}
+.metrics{display:grid;gap:1.65cqw}
+.metric{border-left:3px solid #2b65b8;padding-left:1.2cqw}
+.metric+.metric{border-color:#278474}
+.value{font-size:3.9cqw;font-weight:760;line-height:1;letter-spacing:-.06em;color:#173d73}
+.metric h3{font-size:1.4cqw;margin:.4cqw 0 .2cqw}
+.detail{font-size:1.13cqw;color:#465b75;line-height:1.35}
+#evidence .takeaway{margin-top:1cqw}
+.source{margin-top:.35cqw}
+nav{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:4px;padding:4px;border-radius:30px;background:#142237;white-space:nowrap}
+nav a,nav button{background:transparent;color:#fff;text-decoration:none;border:0;border-radius:25px;padding:8px 12px;font:600 13px 'Segoe UI',Arial,sans-serif;cursor:pointer}
+nav :is(a,button):hover,nav :focus-visible{background:#38577d}
+@media screen and (max-width:650px){
+main{padding:12px 8px 64px;gap:14px}.frame{aspect-ratio:auto;padding:6cqw}.kicker{font-size:2.6cqw}h1,h2{font-size:8cqw}
+.takeaway{font-size:3.7cqw;padding-top:2cqw}.scope{font-size:3cqw;margin:3cqw 0;gap:4cqw}.scope strong{font-size:4cqw}
+.evidence{grid-template-columns:1fr;gap:4cqw}.chart{padding:2cqw}figcaption{font-size:3.5cqw}.meta,.foot,.source{font-size:2.25cqw}table{font-size:2.15cqw;border-spacing:.3cqw .25cqw}.ramp{width:9cqw;height:1.1cqw}
+.metrics{grid-template-columns:1fr 1fr;gap:3cqw}.value{font-size:7cqw}.metric h3{font-size:3.3cqw}.detail{font-size:2.7cqw}#evidence .takeaway{margin-top:4cqw}
+}
+@page{size:13.3333in 7.5in;margin:0}
+@media print{body{background:#fff;print-color-adjust:exact}main{display:block;padding:0}section{width:100%;box-shadow:none;border-radius:0;break-inside:avoid}section+section{break-before:page}nav{display:none}}
+
+/* Dark presentation theme */
+:root{color-scheme:dark}
+body{background:#0b0b11;color:#f8f8ff}
+main{gap:20px}
+section{isolation:isolate;position:relative;border-radius:12px;box-shadow:0 14px 48px #0007}
+#decision{background:radial-gradient(ellipse at 97% 0%,#392c6c 0%,transparent 49%),#151521}
+#evidence{background:radial-gradient(ellipse at 99% 100%,#342823 0%,transparent 50%),#161720}
+.kicker{color:#d3c9ff;letter-spacing:.15em}
+#evidence .kicker{color:#ffdbac}
+.takeaway{border-color:#ffffff39;color:#eee9ff}
+.scope strong{color:#ffe2b9}
+.chart{background:#ffffff06;border-color:#ffffff29}
+th{color:#ece7f7}
+.ramp{background:linear-gradient(90deg,hsl(251 58% 22%),hsl(251 82% 78%));border-color:#c9bde047}
+.metric{border-color:#e9b878}.metric+.metric{border-color:#bdadff}
+.value{color:#ffdcaa}.metric+.metric .value{color:#d4c6ff}
+#evidence .takeaway{color:#ffe4bd}
+nav{background:#242334;border:1px solid #ffffff29}
+nav :is(a,button):hover,nav :focus-visible{background:#413b65}
+@media print{body{background:#0b0b11;-webkit-print-color-adjust:exact}section{box-shadow:none}}
+#decision h1{font-size:5.55cqw;line-height:1.08;letter-spacing:-.055em}
+
+
+
+@media screen and (max-width:650px){
+#decision h1{font-size:8cqw}.title-break{display:none}
+
+}
+/* Shared palette and language-aware typography */
+:root{
+ --decision-glow-a:#a7692e85;--decision-glow-b:#8d68374a;--decision-surface:#262338;
+ --evidence-glow:#a7692e45;--evidence-surface:#242237;--slide-mid:#181c31;
+ --slide-end:#111827;--panel-border:#ffe0a95c;--panel-glow:#ffd38e36;
+ --panel-start:#9a622d40;--panel-mid:#eab97025;--panel-end:#eac99e15;
+ --panel-rim:#fff1d632;--panel-shadow:#100b1738;--panel-text:#fff8ed;
+ --bar-low:#706da6;--bar-high:#aaa2db;--bar-accent-low:#c28a36;
+ --bar-accent-high:#f8d375;--bar-axis:#c4b7dc84;--finding-text:#fff8f0;
+ --finding-detail:#f0edf4;--secondary-text:#626c7e;
+ --ink:#f6f7fb;--muted:#d4dbe8;--accent:#aabfff;--highlight:#ffd096;
+ --surface:var(--slide-end);--line:#54627e;
+ --h0:#172132;--h1:#263977;--h2:#3b59b5;--h3:#7da5f5;--h4:#adc9ff;--h5:#e3edff;
+ --low:#fff;--high:#0a1428;
+}
+:root[data-color="accessible"]{
+ --decision-glow-a:#33629b85;--decision-glow-b:#45728d4a;--decision-surface:#202d44;
+ --evidence-glow:#33629b45;--evidence-surface:#1e2a41;--slide-mid:#182638;
+ --slide-end:#101722;--panel-border:#b8d9f45c;--panel-glow:#aedbff36;
+ --panel-start:#3e70a640;--panel-mid:#82b7e925;--panel-end:#b2d6e915;
+ --panel-rim:#e1f3ff32;--panel-shadow:#0d162438;--panel-text:#f3f9ff;
+ --bar-low:#476c97;--bar-high:#91b9dc;--bar-accent-low:#bc8b3a;
+ --bar-accent-high:#ffe3a3;--bar-axis:#b5cce284;--finding-text:#f1f7ff;
+ --finding-detail:#e8f0fa;--secondary-text:#a1a9b8;
+ --ink:#fff;--muted:#e4e8f0;--accent:#a7dcff;--highlight:#ffe1a8;
+ --surface:#101722;--line:#93a2b8;
+ --h0:#121e2a;--h1:#283e50;--h2:#415e73;--h3:#91aabc;--h4:#bdd0de;--h5:#f3f7fb;
+}
+body{color:var(--ink);background:#090e19;font-family:system-ui,"Segoe UI",Arial,sans-serif;line-height:1.5}
+#decision{background:radial-gradient(ellipse at 100% 0%,#25376a,transparent 58%),var(--surface)}
+#evidence{background:radial-gradient(ellipse at 100% 100%,#342d36,transparent 42%),var(--surface)}
+
+.kicker{letter-spacing:.09em;font-size:max(12px,1.08cqw)}
+.value,.metric+.metric .value,#evidence .takeaway,.scope strong{color:var(--highlight)}
+.metric,.metric+.metric{border:0;border-inline-start:2px solid var(--accent);padding-inline-start:1.45cqw}
+
+
+:is(h1,h2,#decision h1){line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+:root:not(:lang(en)) .title-break{display:none}
+:lang(zh){font-family:system-ui,"Microsoft YaHei","PingFang SC",sans-serif}
+:lang(ar){font-family:"Segoe UI",Tahoma,Arial,sans-serif;letter-spacing:normal!important}
+th:first-child{text-align:start}
+table{line-height:1.25;font-size:max(12px,.94cqw)}
+:is(.meta,.foot,.source){font-size:max(12px,.96cqw)}
+.tone-0{background:var(--h0)}.tone-1{background:var(--h1)}.tone-2{background:var(--h2)}
+.tone-3{background:var(--h3)}.tone-4{background:var(--h4)}.tone-5{background:var(--h5)}
+:is(.tone-0,.tone-1,.tone-2){color:var(--low)}
+:is(.tone-3,.tone-4,.tone-5){color:var(--high)}
+.ramp{background:linear-gradient(to right,var(--h0) 0 16.66%,var(--h1) 16.66% 33.33%,var(--h2) 33.33% 50%,var(--h3) 50% 66.66%,var(--h4) 66.66% 83.33%,var(--h5) 83.33%)}
+[dir="rtl"] .ramp{transform:scaleX(-1)}
+.metric .value{direction:ltr;unicode-bidi:isolate;width:max-content}
+nav{align-items:center;justify-content:center;flex-wrap:wrap;width:max-content;max-width:calc(100% - 16px);background:#171f33;border:1px solid var(--line)}
+nav label{display:flex;align-items:center;gap:.4rem;padding-inline:.55rem;font-size:13px}
+nav select{font:inherit;color:var(--ink);background:#25314a;border:1px solid var(--line);border-radius:6px;padding:.3rem}
+nav button[aria-pressed="true"]{color:#101722;background:var(--accent)}
+nav :focus-visible{outline:2px solid var(--highlight);outline-offset:2px}
+@media screen{
+ .frame{height:auto;min-height:56.25cqw;aspect-ratio:auto}
+
+ main{padding-bottom:120px}
+}
+@media screen and (max-width:740px){
+ .evidence{grid-template-columns:minmax(0,1fr)}
+ .chart{overflow-x:auto}
+ table{min-width:350px}
+ .scope{flex-wrap:wrap;font-size:14px}.scope strong{font-size:17px}
+ .metric h3{font-size:max(16px,2.5cqw)}
+ .metric .value{font-size:max(27px,5cqw)}
+}
+@media screen and (max-width:480px){
+
+
+ .takeaway{font-size:16px}
+}
+@media print{
+
+ table,.meta,.foot,.source{font-size:1cqw}
+ .frame{aspect-ratio:auto;height:56cqw}
+ #evidence h2{font-size:4.45cqw}
+ #evidence .frame{padding-block:3.1cqw 2.25cqw}
+ #evidence .scope{margin-block:.8cqw}
+ #evidence .takeaway{margin-top:.65cqw}
+ #decision h1{font-size:5.1cqw}
+ :root:not(:lang(en)) #decision h1{font-size:4.7cqw}
+}
+nav{column-gap:14px;row-gap:6px}
+
+
+@media screen and (max-width:760px){
+
+}
+/* Page tabs and the decision callout */
+.slide-pages{display:inline-flex;align-self:flex-start;gap:.25rem;margin-bottom:clamp(9px,1.15cqw,15px);padding:3px;border:1px solid #ffffff36;border-radius:999px;background:#0a122866}
+.slide-pages a{display:grid;place-items:center;min-width:32px;min-height:28px;padding-inline:6px;border-radius:999px;color:var(--ink);font:650 12px/1 system-ui,sans-serif;text-decoration:none;font-variant-numeric:tabular-nums}
+.slide-pages a[aria-current="page"]{background:var(--accent);color:#101722}
+.slide-pages a:hover,.slide-pages a:focus-visible{outline:2px solid var(--highlight);outline-offset:1px}
+
+
+
+
+@media print{.slide-pages{display:none}}
+/* Decision layout */
+.slide-pages a{display:flex;gap:.35rem;align-items:center;justify-content:center;white-space:nowrap}
+.slide-pages a[aria-current="page"]{padding-inline:.65rem}
+#decision h1{font-size:4.55cqw}
+
+
+@media screen and (max-width:780px){
+ #decision h1{font-size:7.2cqw}
+}
+@media print{
+ .slide-pages{display:none}
+ #decision h1,:root:not(:lang(en)) #decision h1{font-size:4.5cqw}
+ 
+ .model-detail{font-size:1.1cqw}
+}
+/* Geometric background, kept behind the reading area */
+#decision{background:linear-gradient(125deg,#141c30 12%,#182442 57%,#203152)}
+#decision .frame{position:relative;z-index:1}
+#decision::before,#decision::after{
+ content:"";position:absolute;pointer-events:none;
+ width:61%;aspect-ratio:1;border:1px solid #a7bfff2b;border-radius:12%;
+ transform:rotate(34deg);
+}
+#decision::before{top:-42%;inset-inline-end:-26%;background:#8fa9ff0a}
+#decision::after{top:11%;inset-inline-end:-39%;background:#a6b8ff06}
+#decision .implication{
+ width:min(77%,58ch);margin:auto 0;
+ padding:clamp(16px,2.25cqw,29px);
+ border:1px solid #b7c9ff55;border-radius:15px;
+ background:#111b30c9;backdrop-filter:blur(14px)
+}
+#decision .implication p{color:var(--ink);font-size:clamp(18px,1.88cqw,24px);line-height:1.55;letter-spacing:normal}
+@media screen and (max-width:740px){
+ #decision .implication{width:100%;margin:clamp(20px,5cqw,36px) 0 0}
+ #decision h1{font-size:7.2cqw}
+}
+@media print{
+ #decision .implication{backdrop-filter:none}
+ #decision .implication p{font-size:1.75cqw}
+}
+/* Takeaway callout and study snapshot */
+#decision{
+ background:radial-gradient(ellipse at 6% 37%,var(--decision-glow-a) 0%,transparent 56%),
+ radial-gradient(ellipse at 90% 1%,var(--decision-glow-b) 0%,transparent 48%),
+ linear-gradient(140deg,var(--decision-surface),var(--slide-mid) 55%,var(--slide-end))
+}
+#decision::before,#decision::after{border-color:#f7d4a421}
+#decision::before{background:#f1be6c0a}#decision::after{background:#edba7006}
+.decision-summary{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(0,1fr);align-items:center;gap:4.2cqw;margin:auto 0}
+#decision .implication{
+ width:auto;margin:0;padding:clamp(19px,2.9cqw,37px);
+ border:1px solid var(--panel-border);border-radius:20px;
+ background:radial-gradient(ellipse at 0 0,var(--panel-glow),transparent 72%),linear-gradient(150deg,var(--panel-start),var(--panel-mid) 55%,var(--panel-end));
+ box-shadow:inset 0 1px 0 var(--panel-rim),0 12px 36px var(--panel-shadow);
+ backdrop-filter:blur(18px)
+}
+#decision .implication p{font-size:clamp(17px,1.71cqw,22px);line-height:1.57;color:var(--panel-text)}
+.decision-evidence{display:grid;gap:clamp(9px,1.2cqw,16px);min-width:0}
+
+
+.record-chart{display:grid;row-gap:.2rem;margin:0}
+.record-chart figcaption{font-size:clamp(15px,1.4cqw,19px)}
+.record-bars{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:clamp(3px,.65cqw,9px);padding:0;margin:.45rem 0 0;list-style:none}
+.record-bar{height:var(--height);align-self:end;border-radius:6px 6px 2px 2px;background:linear-gradient(0deg,var(--bar-low),var(--bar-high))}
+.record-bar.highlighted{background:linear-gradient(0deg,var(--bar-accent-low),var(--bar-accent-high))}
+@media screen and (max-width:740px){
+ .decision-summary{grid-template-columns:1fr;gap:22px;margin:20px 0 0}
+ .decision-evidence{gap:13px}
+}
+@media print{
+ .decision-summary{gap:3.7cqw}
+ #decision .implication{backdrop-filter:none;box-shadow:none}
+ #decision .implication p{font-size:1.53cqw}
+
+}
+/* Illustrative adoption bars */
+#decision::before,#decision::after{display:none}
+
+#decision .implication p{font-size:clamp(20px,2.2cqw,29px);font-weight:500;line-height:1.52;letter-spacing:normal;text-wrap:pretty}
+.record-bars{height:clamp(78px,9.4cqw,120px);align-items:end;border-bottom:1px solid var(--bar-axis)}
+.record-chart{row-gap:.55rem}
+@media print{
+ #decision .implication p{font-size:1.85cqw}
+ .record-bars{height:8cqw}
+}
+/* Evidence layout */
+#evidence h2{max-width:23ch;font-size:4.1cqw}
+#evidence .evidence{grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);gap:2.5cqw}
+.chart td{font-size:.92em;font-weight:400;letter-spacing:normal}
+.chart th{font-size:.94em;font-weight:550}
+.chart td.tone-0{color:#aebbd0}
+.evidence-findings{display:grid;gap:1.2cqw}
+.finding{min-width:0}
+.finding h3{margin:0 0 .38cqw;color:var(--accent);font-size:clamp(11px,1.02cqw,14px);line-height:1.2;letter-spacing:.08em;text-transform:uppercase}
+.finding .value{font-size:clamp(32px,4cqw,52px);line-height:1}
+.finding-label{margin:.3cqw 0 .2cqw;font-weight:650;font-size:clamp(14px,1.26cqw,17px);line-height:1.25}
+.finding .detail{font-size:clamp(12px,1.03cqw,14px);line-height:1.38}
+
+#evidence .source{margin-top:.45cqw}
+@media screen and (max-width:740px){
+ #evidence h2{font-size:7cqw;max-width:none}
+ #evidence .evidence{grid-template-columns:1fr;gap:18px}
+ .evidence-findings{gap:16px}
+
+}
+@media print{
+ #evidence h2{font-size:3.75cqw}
+ .finding h3,.finding .detail{font-size:1.01cqw}
+ .finding-label{font-size:1.23cqw}
+
+ #evidence .source{font-size:.87cqw}
+}
+/* Wide evidence title and text findings */
+#evidence h2{max-width:none;font-size:3.8cqw;text-wrap:wrap}
+#evidence .scope{display:block;margin:.8cqw 0 1.5cqw;font-size:clamp(13px,1.23cqw,17px);color:var(--muted)}
+#evidence{
+ background:radial-gradient(ellipse at 100% 45%,var(--evidence-glow) 0%,transparent 58%),
+ linear-gradient(140deg,var(--evidence-surface),var(--slide-mid) 55%,var(--slide-end))
+}
+.evidence-findings .finding{position:relative;border:0;padding-inline-start:0}
+.evidence-findings .finding h3{color:#ffe0b0}
+.finding-number{color:var(--highlight);font-size:1.83em;line-height:.95;font-weight:760;white-space:nowrap}
+@media screen and (max-width:740px){
+ #evidence h2{font-size:7cqw}
+ #evidence .scope{margin:10px 0 14px}
+}
+@media print{
+ #evidence h2{font-size:3.55cqw}
+}
+/* Open text column with a quiet hierarchy */
+#evidence .evidence{gap:clamp(20px,3.5cqw,45px);grid-template-columns:minmax(0,1.48fr) minmax(0,1fr)}
+#evidence .scope{color:#edf1fb}
+#evidence .evidence-findings{display:grid;list-style:none;padding:0;margin:0;gap:clamp(14px,1.65cqw,22px)}
+.evidence-findings .finding{padding-inline-start:0}
+
+.evidence-findings .finding h3{
+ margin:0 0 .45cqw;
+ font-size:clamp(12px,1.06cqw,15px);font-weight:750;letter-spacing:.075em
+}
+.evidence-findings .finding-label{
+ color:var(--finding-text);font-size:clamp(17px,1.61cqw,22px);line-height:1.32;
+ margin:.35cqw 0 .36cqw
+}
+.evidence-findings .detail{color:var(--finding-detail);font-size:clamp(14px,1.15cqw,16px);line-height:1.46}
+#evidence :is(.source,#chart-meta,.foot){color:var(--secondary-text)}
+@media screen and (max-width:740px){#evidence .evidence{grid-template-columns:1fr;gap:20px}}
+@media print{
+ #evidence .evidence{gap:3cqw}
+ #evidence .evidence-findings{gap:1.05cqw}
+
+
+ .evidence-findings .finding h3{font-size:1cqw}
+ .evidence-findings .finding-label{font-size:1.45cqw}
+ .evidence-findings .detail{font-size:1.07cqw}
+}
+/* Evidence header and footer */
+.evidence-header{
+ margin-bottom:1.35cqw
+}
+#evidence .evidence-header h2{margin:0;font-size:4.55cqw;letter-spacing:-.025em;line-height:1.12}
+
+
+#evidence .source{border-top:1px solid var(--line);padding-top:.55cqw;margin-top:.7cqw}
+.evidence-findings .finding-label{margin-top:0}
+@media screen and (max-width:740px){
+ .evidence-header{margin-bottom:16px}
+ #evidence .evidence-header h2{font-size:7.2cqw}
+}
+@media print{
+ #evidence .evidence-header h2{font-size:4.5cqw}
+}
+/* Align the evidence columns to a common top and bottom */
+#evidence .evidence{align-items:stretch;flex:0 0 auto;margin-block:auto}
+#evidence .chart{display:flex;flex-direction:column;justify-content:center}
+#evidence .chart table{line-height:1.08;border-spacing:.21cqw .10cqw}
+#evidence .evidence-findings{align-content:center;gap:clamp(12px,1.3cqw,18px)}
+#evidence .finding-label{line-height:1.45}
+#evidence .finding .detail{line-height:1.55}
+#evidence .source{margin-top:1cqw}
+@media screen and (max-width:740px){
+ #evidence .evidence{margin-block:0}
+ #evidence .chart table{line-height:1.17}
+}
+@media print{
+ #evidence .finding .detail{line-height:1.42}
+ #evidence .source{margin-top:.8cqw}
+}
+#decision .decision-evidence :is(.scope,figcaption){
+ display:block;margin:0;color:var(--ink);
+ font-size:clamp(17px,1.85cqw,24px);line-height:1.3;font-weight:400;letter-spacing:-.02em
+}
+#decision .decision-evidence .scope strong{color:var(--highlight);font:inherit;font-weight:750;unicode-bidi:isolate}
+@media screen and (min-width:1050px){
+ #decision .scope-line{display:block;white-space:nowrap}
+}
+@media print{
+ #decision .decision-evidence :is(.scope,figcaption){font-size:1.62cqw}
+ #decision .scope-line{display:block}
+}
+@media screen and (min-width:741px) and (max-width:780px){
+ #evidence .evidence-header h2{font-size:7.2cqw}
+ #evidence .title-break{display:none}
+}
+[dir="rtl"] .finding-number bdi{white-space:nowrap}
+[dir="rtl"] #chart-meta{unicode-bidi:isolate}
+#evidence .copyright{
+ margin:.32em 0 0;text-align:end;color:var(--secondary-text);
+ font-size:max(11px,.85cqw);line-height:1.25
+}
+@media print{#evidence .copyright{font-size:.82cqw}}
+</style></head>
+<body><main>
+<section id="decision" aria-labelledby="decision-title"><div class="frame">
+<div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="01 · The Takeaway" aria-current="page">01 <span class="tab-name">The Takeaway</span></a><a href="#evidence" data-page="evidence" aria-label="Evidence">02</a></div>
+<h1 id="decision-title">Scaling globally doesn&rsquo;t<br class="title-break"> mean implementing identically.</h1>
+<div class="decision-summary">
+<div class="implication"><p>For Google&rsquo;s global initiatives, meaningful comparisons require standardized measurement, not identical implementation. Evaluating performance and effectiveness also requires understanding local resources, cultural context, and organizational support.</p></div>
+<div class="decision-evidence">
+<p id="study-scope" class="scope"><span class="scope-line">A global metacognition education initiative</span> <span class="scope-line">spanning <strong>30+</strong> schools, <strong>20+</strong> countries,</span> <span class="scope-line">and <strong>3+</strong> years.</span></p>
+<figure class="record-chart">
+<div class="record-bars" dir="ltr" aria-hidden="true"><span class="record-bar" style="--height:19%"></span><span class="record-bar" style="--height:43%"></span><span class="record-bar" style="--height:29%"></span><span class="record-bar" style="--height:68%"></span><span class="record-bar" style="--height:36%"></span><span class="record-bar highlighted" style="--height:88%"></span><span class="record-bar" style="--height:54%"></span><span class="record-bar highlighted" style="--height:100%"></span><span class="record-bar" style="--height:31%"></span><span class="record-bar highlighted" style="--height:72%"></span></div>
+<figcaption id="record-title">Implementation varied widely across schools.</figcaption>
+</figure>
+</div>
+</div>
+</div></section>
+<section id="evidence" aria-labelledby="evidence-title"><div class="frame">
+<div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="Decision">01</a><a href="#evidence" data-page="evidence" aria-label="02 · The Evidence" aria-current="page">02 <span class="tab-name">The Evidence</span></a></div>
+<header class="evidence-header"><h2 id="evidence-title">Different implementation paths<br class="title-break"> can still lead to positive outcomes.</h2>
+</header>
+<div class="evidence">
+<figure class="chart"><figcaption id="chart-title">Metacognitive Digital Platform records by school and grade</figcaption>
+<p class="meta" id="chart-meta">2025&ndash;26 &#183; 11 anonymized schools &#183; 2,488 records</p>
+<table aria-labelledby="chart-title" aria-describedby="chart-meta"><thead><tr><th scope="col">Grade</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th><th scope="col">6</th><th scope="col">7</th><th scope="col">8</th><th scope="col">9</th><th scope="col">10</th><th scope="col">11</th><th scope="col">12</th></tr></thead><tbody><tr><th scope="row">School 1</th><td class="tone-2">32</td><td class="tone-0">0</td><td class="tone-1">15</td><td class="tone-2">35</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 2</th><td class="tone-3">56</td><td class="tone-4">111</td><td class="tone-4">130</td><td class="tone-3">83</td><td class="tone-1">2</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 3</th><td class="tone-0">0</td><td class="tone-3">61</td><td class="tone-1">1</td><td class="tone-1">22</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 4</th><td class="tone-0">0</td><td class="tone-2">47</td><td class="tone-4">107</td><td class="tone-2">30</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 5</th><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-3">62</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 6</th><td class="tone-0">0</td><td class="tone-1">1</td><td class="tone-0">0</td><td class="tone-1">2</td><td class="tone-3">99</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 7</th><td class="tone-2">54</td><td class="tone-2">44</td><td class="tone-2">49</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 8</th><td class="tone-4">142</td><td class="tone-4">110</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 9</th><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-5">203</td><td class="tone-5">163</td><td class="tone-5">159</td><td class="tone-5">199</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 10</th><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-5">185</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-1">1</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 11</th><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-3">56</td><td class="tone-3">88</td><td class="tone-3">76</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-3">63</td><td class="tone-0">0</td></tr></tbody></table>
+<div class="foot"><span class="legend">0 <span class="ramp" aria-hidden="true"></span> 203 <span id="records">records</span></span></div>
+</figure>
+<ul class="evidence-findings">
+<li class="metric finding">
+<p class="finding-label"><strong class="finding-number" data-percent="69"><bdi>69%</bdi></strong> <span id="conditions-label">of teachers reported technological barriers.</span></p>
+<p class="detail" id="conditions-detail">Interviews showed that teachers used alternative platforms and paper-based activities to continue teaching metacognition.</p>
+</li>
+<li class="metric finding">
+<p class="finding-label"><strong class="finding-number" data-percent="61"><bdi>61%</bdi></strong> <span id="outcomes-label">of teachers reported improved student metacognition.</span></p>
+<p class="detail" id="outcomes-detail">Teachers perceived gains in student learning even as implementation varied across schools.</p>
+</li>
+</ul>
+</div>
+<p class="source"><span id="source-prefix">Sources:</span> <cite lang="en" dir="ltr">Honoring Individuality through the Evaluation of a Global Metacognition Project</cite> <span id="proposal-status">(AERA 2027 accepted proposal)</span><span aria-hidden="true"> · </span><span lang="en" dir="ltr">Nord Anglia Education, <cite>Metacognition Project Impact Report</cite> (2025)</span><span aria-hidden="true"> · </span><span id="project-sources">Project interviews and observations</span></p>
+<p class="copyright"><bdi dir="ltr">&copy; 2026 Zhexun Xin.</bdi> <span id="rights-reserved">All rights reserved.</span></p>
+</div></section>
+</main>
+<nav class="utility-bar" aria-label="Accessibility and print">
+
+<label><span id="language-label">Language</span>
+<select id="language"><option value="en" lang="en">English</option><option value="zh" lang="zh">简体中文</option><option value="ar" lang="ar">العربية</option><option value="fr" lang="fr">Français</option><option value="ru" lang="ru">Русский</option><option value="es" lang="es">Español</option></select></label>
+<button id="color-mode" type="button" aria-pressed="false">Color vision mode</button>
+<button id="print" type="button">Print / PDF</button>
+</nav>
+<script>
+const textTargets = {
+  "documentTitle": "title",
+  "decisionTitle": "#decision-title",
+  "decisionCopy": ".implication p",
+  "evidenceTitle": "#evidence-title",
+  "studyScope": "#study-scope",
+  "chartTitle": "#chart-title",
+  "chartMeta": "#chart-meta",
+  "grade": "thead th:first-child",
+  "records": "#records",
+  "conditionsLabel": "#conditions-label",
+  "conditionsDetail": "#conditions-detail",
+  "outcomesLabel": "#outcomes-label",
+  "outcomesDetail": "#outcomes-detail",
+  "sourcePrefix": "#source-prefix",
+  "proposalStatus": "#proposal-status",
+  "projectSources": "#project-sources",
+  "rightsReserved": "#rights-reserved",
+  "language": "#language-label",
+  "colorMode": "#color-mode",
+  "print": "#print",
+  "recordTitle": "#record-title"
+};
+const translations = {
+  "zh": {
+    "documentTitle": "全球元认知项目｜高管简报",
+    "decisionTitle": "全球推广，无需各地照搬同一做法。",
+    "decisionCopy": "对于 Google 的全球项目，有意义的比较需要统一测量标准，而非统一实施方式。评估项目表现与成效，还需要了解当地资源、文化背景和组织支持。",
+    "evidenceTitle": "不同的实施路径仍可带来积极成果。",
+    "studyScope": "一项覆盖 30+ 所学校、20+ 个国家、历时 3+ 年的全球元认知教育项目。",
+    "chartTitle": "按学校和年级统计的元认知数字平台记录",
+    "chartMeta": "2025–26 学年 · 11 所匿名学校 · 2,488 条记录",
+    "grade": "年级",
+    "records": "条记录",
+    "conditionsLabel": "的教师报告遇到技术障碍。",
+    "conditionsDetail": "访谈显示，教师用替代平台和纸笔活动继续开展元认知教学。",
+    "outcomesLabel": "的教师报告学生的元认知有所改善。",
+    "outcomesDetail": "尽管各校的实施方式不同，教师仍认为学生的学习有所进步。",
+    "sourcePrefix": "来源：",
+    "proposalStatus": "（AERA 2027 已接收提案）",
+    "projectSources": "项目访谈与观察",
+    "rightsReserved": "保留所有权利。",
+    "language": "语言",
+    "colorMode": "色觉友好模式",
+    "print": "打印 / PDF",
+    "recordTitle": "各校的实施情况差异很大。"
+  },
+  "ar": {
+    "documentTitle": "مبادرة عالمية لما وراء المعرفة — موجز تنفيذي",
+    "decisionTitle": "التوسع عالميًا لا يعني توحيد طريقة التنفيذ.",
+    "decisionCopy": "في مبادرات ⁦Google⁩ العالمية، تتطلب المقارنات ذات المعنى توحيد القياس، لا توحيد طريقة التنفيذ. ويتطلب تقييم الأداء والفعالية أيضًا فهم الموارد المحلية والسياق الثقافي والدعم المؤسسي.",
+    "evidenceTitle": "قد تؤدي مسارات التنفيذ المختلفة إلى نتائج إيجابية.",
+    "studyScope": "مبادرة عالمية لتعليم مهارات ما وراء المعرفة امتدت ٣ سنوات فأكثر، وشملت ٣٠ مدرسة فأكثر في ٢٠ دولة فأكثر.",
+    "chartTitle": "سجلات المنصة الرقمية لما وراء المعرفة بحسب المدرسة والصف الدراسي",
+    "chartMeta": "⁦٢٠٢٥–٢٠٢٦⁩ · ١١ مدرسة لم تُذكر أسماؤها · ٢٬٤٨٨ سجلًا",
+    "grade": "الصف الدراسي",
+    "records": "سجلًا",
+    "conditionsLabel": "من المعلمين أفادوا بوجود عوائق تقنية.",
+    "conditionsDetail": "أظهرت المقابلات أن المعلمين لجؤوا إلى منصات بديلة وأنشطة ورقية لمواصلة تدريس مهارات ما وراء المعرفة.",
+    "outcomesLabel": "من المعلمين أفادوا بتحسّن مهارات ما وراء المعرفة لدى طلابهم.",
+    "outcomesDetail": "لاحظ المعلمون تحسّنًا في تعلّم الطلاب، رغم اختلاف طرق التنفيذ بين المدارس.",
+    "sourcePrefix": "المصادر:",
+    "proposalStatus": "(مقترح قُبل في مؤتمر ⁦AERA 2027⁩)",
+    "projectSources": "المقابلات والملاحظات الميدانية للمشروع",
+    "rightsReserved": "جميع الحقوق محفوظة.",
+    "language": "اللغة",
+    "colorMode": "ألوان ملائمة لعمى الألوان",
+    "print": "طباعة / ⁦PDF⁩",
+    "recordTitle": "تفاوتت طرق التنفيذ بدرجة كبيرة بين المدارس."
+  },
+  "fr": {
+    "documentTitle": "Métacognition à l’échelle mondiale — Synthèse stratégique",
+    "decisionTitle": "Un déploiement mondial n’exige pas une mise en œuvre uniforme.",
+    "decisionCopy": "Pour les initiatives mondiales de Google, des comparaisons pertinentes exigent des mesures standardisées, sans imposer une mise en œuvre identique. Évaluer la performance et l’efficacité exige aussi de comprendre les ressources locales, le contexte culturel et le soutien organisationnel.",
+    "evidenceTitle": "Des modes de mise en œuvre différents peuvent mener à des résultats positifs.",
+    "studyScope": "Une initiative mondiale d’éducation à la métacognition couvrant au moins 30 écoles et 20 pays sur 3 ans ou plus.",
+    "chartTitle": "Enregistrements de la plateforme numérique de métacognition par école et niveau scolaire",
+    "chartMeta": "2025–2026 · 11 écoles anonymisées · 2 488 enregistrements",
+    "grade": "Niveau",
+    "records": "enregistrements",
+    "conditionsLabel": "des enseignants ont signalé des obstacles technologiques.",
+    "conditionsDetail": "Les entretiens ont montré que les enseignants utilisaient d’autres plateformes et des activités sur papier pour poursuivre l’enseignement de la métacognition.",
+    "outcomesLabel": "des enseignants ont signalé une amélioration de la métacognition chez leurs élèves.",
+    "outcomesDetail": "Les enseignants ont perçu des progrès dans les apprentissages malgré des mises en œuvre différentes selon les écoles.",
+    "sourcePrefix": "Sources :",
+    "proposalStatus": "(proposition acceptée à l’AERA 2027)",
+    "projectSources": "Entretiens et observations du projet",
+    "rightsReserved": "Tous droits réservés.",
+    "language": "Langue",
+    "colorMode": "Mode daltonisme",
+    "print": "Imprimer / PDF",
+    "recordTitle": "La mise en œuvre a beaucoup varié d’une école à l’autre."
+  },
+  "ru": {
+    "documentTitle": "Метапознание в мировом масштабе — краткий доклад",
+    "decisionTitle": "Масштабирование по всему миру не требует одинакового внедрения.",
+    "decisionCopy": "Для содержательного сравнения глобальных инициатив Google нужны стандартизированные измерения, а не одинаковое внедрение. Для оценки результативности и эффективности также важно понимать местные ресурсы, культурный контекст и организационную поддержку.",
+    "evidenceTitle": "Разные способы внедрения могут приводить к положительным результатам.",
+    "studyScope": "Глобальная образовательная инициатива по метапознанию: не менее 30 школ и 20 стран за 3 года или более.",
+    "chartTitle": "Записи на цифровой платформе метапознания по школам и классам",
+    "chartMeta": "2025–2026 · 11 школ без указания названий · 2 488 записей",
+    "grade": "Класс",
+    "records": "записи",
+    "conditionsLabel": "учителей сообщили о технологических барьерах.",
+    "conditionsDetail": "Интервью показали, что учителя использовали альтернативные платформы и задания на бумаге, чтобы продолжать обучение метапознанию.",
+    "outcomesLabel": "учителей сообщили об улучшении метапознания у учащихся.",
+    "outcomesDetail": "Учителя отмечали улучшения в обучении учащихся, хотя способы внедрения различались от школы к школе.",
+    "sourcePrefix": "Источники:",
+    "proposalStatus": "(заявка принята на AERA 2027)",
+    "projectSources": "Интервью и наблюдения в рамках проекта",
+    "rightsReserved": "Все права защищены.",
+    "language": "Язык",
+    "colorMode": "Режим для дальтонизма",
+    "print": "Печать / PDF",
+    "recordTitle": "Внедрение существенно различалось от школы к школе."
+  },
+  "es": {
+    "documentTitle": "Metacognición a escala mundial — Resumen ejecutivo",
+    "decisionTitle": "Escalar globalmente no exige implementar del mismo modo en todas partes.",
+    "decisionCopy": "Para las iniciativas globales de Google, las comparaciones útiles requieren mediciones estandarizadas, no una implementación idéntica. Evaluar el rendimiento y la eficacia también exige comprender los recursos locales, el contexto cultural y el apoyo organizativo.",
+    "evidenceTitle": "Distintas formas de implementación pueden dar resultados positivos.",
+    "studyScope": "Una iniciativa mundial de educación metacognitiva que abarca al menos 30 escuelas y 20 países a lo largo de 3 años o más.",
+    "chartTitle": "Registros de la plataforma digital de metacognición por escuela y grado",
+    "chartMeta": "2025–2026 · 11 escuelas anonimizadas · 2.488 registros",
+    "grade": "Grado",
+    "records": "registros",
+    "conditionsLabel": "de los docentes informó de barreras tecnológicas.",
+    "conditionsDetail": "Las entrevistas mostraron que los docentes recurrieron a plataformas alternativas y actividades en papel para seguir enseñando metacognición.",
+    "outcomesLabel": "de los docentes informó de mejoras en la metacognición del alumnado.",
+    "outcomesDetail": "Los docentes percibieron avances en el aprendizaje del alumnado pese a las diferencias de implementación entre escuelas.",
+    "sourcePrefix": "Fuentes:",
+    "proposalStatus": "(propuesta aceptada en AERA 2027)",
+    "projectSources": "Entrevistas y observaciones del proyecto",
+    "rightsReserved": "Todos los derechos reservados.",
+    "language": "Idioma",
+    "colorMode": "Modo para daltonismo",
+    "print": "Imprimir / PDF",
+    "recordTitle": "La implementación varió considerablemente entre las escuelas."
+  }
+};
+const toolbarLabels = {
+  en: 'Accessibility and print',
+  zh: '无障碍与打印',
+  ar: 'إمكانية الوصول والطباعة',
+  fr: 'Accessibilité et impression',
+  ru: 'Специальные возможности и печать',
+  es: 'Accesibilidad e impresión'
+};
+const pageLabels = {
+  en: ['The Takeaway', 'The Evidence'],
+  zh: ['核心结论', '研究证据'],
+  ar: ['الخلاصة', 'الأدلة'],
+  fr: ['Conclusion', 'Données'],
+  ru: ['Главный вывод', 'Данные'],
+  es: ['Conclusión', 'Evidencia']
+};
+const labels = {
+  en: ['Slide navigation', 'School'],
+  zh: ['幻灯片导航', '学校'],
+  ar: ['التنقل بين الشرائح', 'المدرسة'],
+  fr: ['Navigation des diapositives', 'École'],
+  ru: ['Навигация по слайдам', 'Школа'],
+  es: ['Navegación de diapositivas', 'Escuela']
+};
+const localizedNodes = Object.entries(textTargets).map(([key, selector]) => {
+  const node = document.querySelector(selector);
+  return { key, node, original: node.cloneNode(true) };
+});
+const language = document.querySelector('#language');
+const colorMode = document.querySelector('#color-mode');
+
+function remember(key, value) {
+  try { localStorage.setItem(key, value); } catch {}
+}
+function saved(key) {
+  try { return localStorage.getItem(key); } catch { return null; }
+}
+function setLanguage(locale) {
+  const messages = Object.hasOwn(translations, locale) ? translations[locale] : null;
+  if (locale !== 'en' && !messages) return;
+  document.documentElement.lang = locale;
+  document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
+  language.value = locale;
+  localizedNodes.forEach(({ key, node, original }) => {
+    if (!messages) {
+      node.replaceChildren(...Array.from(original.childNodes, child => child.cloneNode(true)));
+      return;
+    }
+    if (node.id === 'study-scope') {
+      node.replaceChildren();
+      for (const piece of messages[key].split(/(\p{Nd}+\+?)/u)) {
+        if (/^\p{Nd}+\+?$/u.test(piece)) {
+          const emphasis = document.createElement('strong');
+          emphasis.textContent = piece;
+          node.append(emphasis);
+        } else {
+          node.append(piece);
+        }
+      }
+      return;
+    }
+    node.textContent = messages[key];
+  });
+  const numberFormatter = new Intl.NumberFormat(locale === 'ar' ? 'ar-EG' : 'en');
+  const percentFormatter = new Intl.NumberFormat(locale === 'ar' ? 'ar-EG' : 'en', { style: 'percent' });
+  document.querySelectorAll('[data-percent]').forEach(stat => {
+    stat.querySelector('bdi').textContent = percentFormatter.format(Number(stat.dataset.percent) / 100);
+  });
+  const [navigation, school] = labels[locale];
+  document.querySelector('.utility-bar').setAttribute('aria-label', toolbarLabels[locale]);
+  document.querySelectorAll('.slide-pages').forEach(group => {
+    group.setAttribute('aria-label', navigation);
+    Array.from(group.querySelectorAll('a')).forEach((link, index) => {
+      const name = pageLabels[locale][index];
+      link.setAttribute('aria-label', '0' + (index + 1) + ' · ' + name);
+      const tab = link.querySelector('.tab-name');
+      if (tab) tab.textContent = name;
+    });
+  });
+  document.querySelectorAll('tbody th').forEach((node, index) => {
+    node.textContent = school + ' ' + numberFormatter.format(index + 1);
+  });
+  remember('briefing-language', locale);
+}
+function setColorMode(enabled) {
+  document.documentElement.dataset.color = enabled ? 'accessible' : 'default';
+  colorMode.setAttribute('aria-pressed', String(enabled));
+  remember('briefing-color', String(enabled));
+}
+language.addEventListener('change', () => setLanguage(language.value));
+colorMode.addEventListener('click', () => setColorMode(colorMode.getAttribute('aria-pressed') !== 'true'));
+document.querySelector('#print').addEventListener('click', () => window.print());
+setLanguage(saved('briefing-language') || 'en');
+setColorMode(saved('briefing-color') === 'true');
+</script>
+
+</body></html>

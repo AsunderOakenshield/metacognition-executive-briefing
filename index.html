@@ -523,8 +523,7 @@ nav{column-gap:14px;row-gap:6px}
 #evidence .approach-layout #evidence-title{line-height:1.32}
 @media screen and (min-width:901px){
  #evidence .approach-layout #evidence-title{
-  align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;
-  padding-block:.85cqw .9cqw;gap:.15em
+  align-self:center
  }
  #evidence .approach-layout .evaluation-map{align-self:center}
 }
@@ -889,6 +888,7 @@ function setLanguage(locale) {
     const width = label.getComputedTextLength();
     if (width > limit) label.style.fontSize = (parseFloat(getComputedStyle(label).fontSize) * limit / width) + 'px';
   });
+  requestAnimationFrame(alignApproachTitle);
   remember('briefing-language', locale);
 }
 function setColorMode(enabled) {
@@ -896,6 +896,42 @@ function setColorMode(enabled) {
   colorMode.setAttribute('aria-pressed', String(enabled));
   remember('briefing-color', String(enabled));
 }
+function alignApproachTitle() {
+  const heading = document.querySelector('#evidence-title');
+  heading.style.removeProperty('line-height');
+  heading.style.removeProperty('transform');
+  if (!matchMedia('screen and (min-width:901px)').matches) return;
+  const topLabels = [...document.querySelectorAll('.map-column')];
+  const bottomLabels = ['student-test-scores', 'level-individual'].map(id => document.getElementById(id));
+  const bounds = () => ({
+    top: Math.min(...topLabels.map(label => label.getBoundingClientRect().top)),
+    bottom: Math.max(...bottomLabels.map(label => label.getBoundingClientRect().bottom))
+  });
+  const textBounds = () => {
+    const range = document.createRange();
+    const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+    const rects = [];
+    for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+      range.selectNodeContents(node);
+      rects.push(...[...range.getClientRects()].filter(rect => rect.width && rect.height));
+    }
+    if (!rects.length) return null;
+    return {top: Math.min(...rects.map(rect => rect.top)), bottom: Math.max(...rects.map(rect => rect.bottom))};
+  };
+  const target = bounds();
+  const first = textBounds();
+  if (!first) return;
+  const original = parseFloat(getComputedStyle(heading).lineHeight);
+  heading.style.lineHeight = (original + 4) + 'px';
+  const second = textBounds();
+  const gaps = second ? ((second.bottom - second.top) - (first.bottom - first.top)) / 4 : 0;
+  const fitted = gaps > .5 ? original + ((target.bottom - target.top) - (first.bottom - first.top)) / gaps : original;
+  heading.style.lineHeight = Math.max(parseFloat(getComputedStyle(heading).fontSize) * 1.08, fitted) + 'px';
+  const revised = textBounds();
+  if (revised) heading.style.transform = 'translateY(' + (bounds().top - revised.top) + 'px)';
+}
+window.addEventListener('resize', alignApproachTitle);
+document.fonts.ready.then(alignApproachTitle);
 language.addEventListener('change', () => setLanguage(language.value));
 colorMode.addEventListener('click', () => setColorMode(colorMode.getAttribute('aria-pressed') !== 'true'));
 document.querySelector('#print').addEventListener('click', () => window.print());

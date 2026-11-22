@@ -427,15 +427,13 @@ nav{column-gap:14px;row-gap:6px}
 /* Evaluation levels and their evidence sources */
 .evaluation-map{margin:auto 0;overflow-x:auto;direction:ltr}
 .evaluation-map svg{display:block;width:94%;max-width:1000px;min-width:630px;margin-inline:auto}
-.map-spine{stroke:url(#map-thread);stroke-width:1.4;fill:none}
+.map-spine{stroke:var(--line);stroke-width:1.4;fill:none}
 .map-plane{fill:url(#map-glass);stroke:var(--accent);stroke-opacity:.52;stroke-width:1;stroke-linejoin:round}
-.map-plane-edge{fill:var(--accent);fill-opacity:.18;stroke:none}
-.map-icon{fill:none;stroke:var(--highlight);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .map-level,.map-source{font-family:inherit;fill:var(--ink)}
-.map-level{font-size:22px;font-weight:660;text-anchor:end}
-.map-source{font-size:19px;font-weight:500;fill:var(--muted)}
-[lang="ar"] .map-level{direction:rtl;text-anchor:start}
-[lang="ar"] .map-source{direction:rtl;text-anchor:end}
+.map-level{font-size:21px;font-weight:660;text-anchor:start}
+.map-source{font-size:18px;font-weight:500;fill:var(--muted);text-anchor:end}
+[lang="ar"] :is(.map-level,.map-column-level){direction:rtl;text-anchor:end}
+[lang="ar"] :is(.map-source,.map-column-evidence){direction:rtl;text-anchor:start}
 @media screen and (max-width:740px){.evaluation-map{margin:14px 0}}
 @media print{
  .evaluation-map{overflow:visible}
@@ -446,9 +444,10 @@ nav{column-gap:14px;row-gap:6px}
 @media print{#decision .project-facts dd{font-size:2.8cqw}}
 .map-glass-light{stop-color:var(--accent);stop-opacity:.28}
 .map-glass-dark{stop-color:var(--accent);stop-opacity:.07}
-.map-thread-end{stop-color:var(--accent);stop-opacity:.14}
-.map-thread-center{stop-color:var(--accent);stop-opacity:.54}
-.map-icon-disc{fill:var(--surface);fill-opacity:.9;stroke:var(--accent);stroke-opacity:.23;stroke-width:1}
+.map-column{fill:var(--highlight);font-size:19px;font-weight:700}
+.map-column-evidence{text-anchor:end}
+.map-world{fill:var(--accent);fill-opacity:.57;stroke:var(--accent);stroke-width:.7;stroke-linejoin:round}
+.map-outline{fill:none;stroke:var(--highlight);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
 </style></head>
 <body><main>
 <section id="decision" aria-labelledby="decision-title"><div class="frame">
@@ -465,9 +464,6 @@ nav{column-gap:14px;row-gap:6px}
 <div><dt id="schools-label">Schools</dt><dd data-study-number="34">34</dd></div>
 <div><dt id="countries-label">Countries</dt><dd data-study-number="20">20</dd></div>
 <div><dt id="years-label">Years</dt><dd data-study-number="3">3</dd></div>
-<div><dt id="student-count">Student surveys</dt><dd data-study-number="15790">15,790</dd></div>
-<div><dt id="teacher-count">Teacher surveys</dt><dd data-study-number="2050">2,050</dd></div>
-<div><dt id="record-count">Platform use records</dt><dd data-study-number="500000" data-suffix="+">500,000+</dd></div>
 </dl>
 <p id="background-copy">A longitudinal evaluation of a global learning initiative, examining implementation and outcomes across diverse school contexts.</p>
 </div>
@@ -478,53 +474,18 @@ nav{column-gap:14px;row-gap:6px}
 <div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="Decision">01</a><a href="#evidence" data-page="evidence" aria-label="02 · THE APPROACH" aria-current="page">02 <span class="tab-name">THE APPROACH</span></a></div>
 <h2 id="evidence-title">A fuller understanding of impact,<br> at every level.</h2>
 <figure class="evaluation-map">
-<svg viewBox="0 0 1060 415" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="evaluation-map-title evaluation-map-desc">
+<svg viewBox="0 0 1060 422" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="evaluation-map-title evaluation-map-desc">
 <title id="evaluation-map-title">Evidence sources by evaluation level</title>
 <desc id="evaluation-map-desc">Five aligned levels map specific evidence sources: global teacher and student surveys, school leadership interviews, classroom observations, grade-level platform usage records, and individual student test scores.</desc>
-<defs>
-<linearGradient id="map-glass" x2="1" y2="1" gradientUnits="objectBoundingBox">
-<stop class="map-glass-light"/><stop class="map-glass-dark" offset="1"/>
-</linearGradient>
-<linearGradient id="map-thread" x1="0" x2="0" y2="1">
-<stop class="map-thread-end"/><stop class="map-thread-center" offset=".5"/><stop class="map-thread-end" offset="1"/>
-</linearGradient>
-</defs>
-<path class="map-spine" d="M423 58V368"/>
-<g class="map-layer">
-<polygon class="map-plane-edge" points="275,59 418,82 589,59 589,62 418,85 275,62"/>
-<polygon class="map-plane" points="275,59 446,36 589,59 418,82"/>
-<g class="map-icon" transform="translate(395 54)"><circle class="map-icon-disc" r="21"/><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-7h3m3 0h6m-12 6h3m3 0h6m-12 6h3m3 0h6"/></g><g class="map-icon" transform="translate(451 54)"><circle class="map-icon-disc" r="21"/><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-7h3m3 0h6m-12 6h3m3 0h6m-12 6h3m3 0h6"/></g>
-<text class="map-level" x="248" y="64" id="level-global">Global</text>
-<text class="map-source" x="621" y="52" id="teacher-surveys">Teacher Surveys</text><text class="map-source" x="621" y="74" id="student-surveys">Student Surveys</text>
-</g>
-<g class="map-layer">
-<polygon class="map-plane-edge" points="275,135 418,158 589,135 589,138 418,161 275,138"/>
-<polygon class="map-plane" points="275,135 446,112 589,135 418,158"/>
-<g class="map-icon" transform="translate(422 130)"><circle class="map-icon-disc" r="21"/><path d="M-15-12H7a4 4 0 0 1 4 4V3a4 4 0 0 1-4 4H-5l-7 5V7h-3a3 3 0 0 1-3-3V-9a3 3 0 0 1 3-3Z"/><path d="M14-4h3v13h-4v5l-6-5m-18-14H4m-15 5H1"/></g>
-<text class="map-level" x="248" y="140" id="level-school">School</text>
-<text class="map-source" x="621" y="140" id="leadership-interviews">Leadership Interviews</text>
-</g>
-<g class="map-layer">
-<polygon class="map-plane-edge" points="275,211 418,234 589,211 589,214 418,237 275,214"/>
-<polygon class="map-plane" points="275,211 446,188 589,211 418,234"/>
-<g class="map-icon" transform="translate(422 206)"><circle class="map-icon-disc" r="21"/><path d="M-18 0Q0-20 18 0 0 20-18 0Z"/><circle r="5.5"/></g>
-<text class="map-level" x="248" y="216" id="level-classroom">Classroom</text>
-<text class="map-source" x="621" y="216" id="classroom-observations">Classroom Observations</text>
-</g>
-<g class="map-layer">
-<polygon class="map-plane-edge" points="275,287 418,310 589,287 589,290 418,313 275,290"/>
-<polygon class="map-plane" points="275,287 446,264 589,287 418,310"/>
-<g class="map-icon" transform="translate(422 282)"><circle class="map-icon-disc" r="21"/><rect x="-16" y="-13" width="32" height="26" rx="3"/><path d="M-16-6h32M-9 6V1m8 5V-1m8 7V-4"/></g>
-<text class="map-level" x="248" y="292" id="level-grade">Grade</text>
-<text class="map-source" x="621" y="292" id="platform-records">Platform Usage Records</text>
-</g>
-<g class="map-layer">
-<polygon class="map-plane-edge" points="275,363 418,386 589,363 589,366 418,389 275,366"/>
-<polygon class="map-plane" points="275,363 446,340 589,363 418,386"/>
-<g class="map-icon" transform="translate(422 358)"><circle class="map-icon-disc" r="21"/><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-3l4 4 8-8M-6 6H6"/></g>
-<text class="map-level" x="248" y="368" id="level-individual">Individual</text>
-<text class="map-source" x="621" y="368" id="student-test-scores">Student Test Scores</text>
-</g>
+<defs><linearGradient id="map-glass" x2="100%" y2="100%"><stop class="map-glass-light"/><stop class="map-glass-dark" offset="1"/></linearGradient></defs>
+<text class="map-column map-column-evidence" x="412" y="23" id="evidence-column">Triangulate evidence.</text>
+<text class="map-column map-column-level" x="802" y="23" id="levels-column">Evaluate across levels.</text>
+<path class="map-spine" d="M607 113V397"/>
+<g class="map-layer"><g class="map-world" transform="translate(607 79) scale(1.6 .85)"><path d="M-89-10l9-7 15-3 8-7 19 4 3 8-9 5-2 9-10 2-4 6-8-3-6-10-11 1z M-59 8l11 3 12 7-2 8-7 7-5 11-4-10-6-7 2-8z M-28-24l13-6 9 4-4 9-11 2z M-11-7l8-7 14 3 4-4 17-3 13-6 26 1 20 6 2 8-12 2-8 12-12 1-8 9-9-6-7 1-4-9-9 3-5-7-9 1-7 7-9-3z M-4 5l12-3 15 8-3 13-8 12-5-1-5-13-7-5z M64 24l9-8 14 3 9 8-5 8-18 1z M36 17l10 2 8 5-11-1z"/></g><text class="map-source" x="412" y="75" id="teacher-surveys">Teacher Surveys · 2,050</text><text class="map-source" x="412" y="98" id="student-surveys">Student Surveys · 15,790</text><text class="map-level" x="802" y="87" id="level-global">Global</text></g>
+<g class="map-layer"><path class="map-plane" d="M442 160 607 142 772 160 607 178Z"/><g class="map-outline" transform="translate(607 153)"><path d="M-48 14h96M-42 14v-25h24v25m36 0v-25h24v25M-20-8l20-16L20-8M-15-12v26h30v-26M-5 14V2H5v12M-34-4h7m-7 8h7m54-8h7m-7 8h7"/><circle cy="-9" r="3"/></g><text class="map-source" x="412" y="160" id="leadership-interviews">Leadership Interviews</text><text class="map-level" x="802" y="160" id="level-school">School</text></g>
+<g class="map-layer"><path class="map-plane" d="M472 233 607 215 742 233 607 251Z"/><g class="map-outline" transform="translate(607 226)"><rect x="-33" y="-21" width="66" height="21" rx="3"/><path d="M-23-13h22m-28 27h19m20 0h19M-25 6h12v8m26-8h12v8M-23 14v6m12-6v6m22-6v6m12-6v6"/></g><text class="map-source" x="412" y="233" id="classroom-observations">Classroom Observations</text><text class="map-level" x="802" y="233" id="level-classroom">Classroom</text></g>
+<g class="map-layer"><path class="map-plane" d="M502 306 607 288 712 306 607 324Z"/><g class="map-outline" transform="translate(607 298)"><path d="M-38 15h20V5H2V-5h20v-10h18M-38 21h78"/></g><text class="map-source" x="412" y="306" id="platform-records">Platform Usage Records · 500,000+</text><text class="map-level" x="802" y="306" id="level-grade">Grade</text></g>
+<g class="map-layer"><path class="map-plane" d="M535 379 607 361 679 379 607 397Z"/><g class="map-outline" transform="translate(607 371)"><circle cy="-12" r="6"/><path d="M-14 9v-2a14 14 0 0 1 28 0v2M-7 9v9m14-9v9"/></g><text class="map-source" x="412" y="379" id="student-test-scores">Student Test Scores</text><text class="map-level" x="802" y="379" id="level-individual">Individual</text></g>
 </svg>
 </figure>
 <p class="copyright"><bdi dir="ltr">&copy; 2026 Zhexun Xin.</bdi> <span class="rights-reserved">All rights reserved.</span></p>
@@ -566,9 +527,8 @@ const textTargets = {
   "student-test-scores": "#student-test-scores",
   "evaluation-map-title": "#evaluation-map-title",
   "evaluation-map-desc": "#evaluation-map-desc",
-  "student-count": "#student-count",
-  "teacher-count": "#teacher-count",
-  "record-count": "#record-count"
+  "evidenceColumn": "#evidence-column",
+  "levelsColumn": "#levels-column"
 };
 const translations = {
   "zh": {
@@ -591,17 +551,16 @@ const translations = {
     "level-classroom": "课堂",
     "level-grade": "年级",
     "level-individual": "个体",
-    "teacher-surveys": "教师问卷",
-    "student-surveys": "学生问卷",
+    "teacher-surveys": "教师问卷 · 2,050",
+    "student-surveys": "学生问卷 · 15,790",
     "leadership-interviews": "学校领导访谈",
     "classroom-observations": "课堂观察",
-    "platform-records": "平台使用记录",
+    "platform-records": "平台使用记录 · 500,000+",
     "student-test-scores": "学生测验成绩",
     "evaluation-map-title": "按评估层级划分的证据来源",
     "evaluation-map-desc": "五个相连层级各有对应证据：全球层面的教师和学生问卷、学校领导访谈、课堂观察、年级层面的平台使用记录，以及个体学生的测验成绩。",
-    "student-count": "份学生问卷",
-    "teacher-count": "份教师问卷",
-    "record-count": "条平台使用记录"
+    "evidenceColumn": "交叉验证证据。",
+    "levelsColumn": "跨层级评估。"
   },
   "ar": {
     "documentTitle": "مبادرة عالمية لما وراء المعرفة — موجز تنفيذي",
@@ -623,17 +582,16 @@ const translations = {
     "level-classroom": "الفصل الدراسي",
     "level-grade": "الصف الدراسي",
     "level-individual": "الفرد",
-    "teacher-surveys": "استبيانات المعلمين",
-    "student-surveys": "استبيانات الطلاب",
+    "teacher-surveys": "استبيانات المعلمين · ٢٬٠٥٠",
+    "student-surveys": "استبيانات الطلاب · ١٥٬٧٩٠",
     "leadership-interviews": "مقابلات القيادات المدرسية",
     "classroom-observations": "الملاحظات الصفية",
-    "platform-records": "سجلات استخدام المنصة",
+    "platform-records": "سجلات استخدام المنصة · ⁦٥٠٠٬٠٠٠+⁩",
     "student-test-scores": "درجات اختبارات الطلاب",
     "evaluation-map-title": "مصادر الأدلة بحسب مستوى التقييم",
     "evaluation-map-desc": "خمسة مستويات مترابطة: استبيانات المعلمين والطلاب على المستوى العالمي، ومقابلات القيادات المدرسية، والملاحظات الصفية، وسجلات استخدام المنصة بحسب الصف، ودرجات اختبارات الطلاب على المستوى الفردي.",
-    "student-count": "استبيانًا للطلاب",
-    "teacher-count": "استبيانًا للمعلمين",
-    "record-count": "سجل لاستخدام المنصة"
+    "evidenceColumn": "قارن بين مصادر الأدلة.",
+    "levelsColumn": "قيّم عبر المستويات."
   },
   "fr": {
     "documentTitle": "Métacognition à l’échelle mondiale — Synthèse stratégique",
@@ -655,17 +613,16 @@ const translations = {
     "level-classroom": "Classe",
     "level-grade": "Niveau scolaire",
     "level-individual": "Individu",
-    "teacher-surveys": "Enquêtes auprès des enseignants",
-    "student-surveys": "Enquêtes auprès des élèves",
+    "teacher-surveys": "Enquêtes auprès des enseignants · 2 050",
+    "student-surveys": "Enquêtes auprès des élèves · 15 790",
     "leadership-interviews": "Entretiens avec la direction",
     "classroom-observations": "Observations en classe",
-    "platform-records": "Traces d’utilisation de la plateforme",
+    "platform-records": "Traces d’utilisation de la plateforme · 500 000+",
     "student-test-scores": "Résultats aux tests des élèves",
     "evaluation-map-title": "Sources de données par niveau d’évaluation",
     "evaluation-map-desc": "Cinq niveaux relient les sources à leur échelle : enquêtes auprès des enseignants et des élèves au niveau mondial, entretiens avec les directions, observations en classe, traces de la plateforme par niveau scolaire et résultats individuels aux tests.",
-    "student-count": "Réponses aux enquêtes élèves",
-    "teacher-count": "Réponses aux enquêtes enseignants",
-    "record-count": "Traces d’utilisation de la plateforme"
+    "evidenceColumn": "Croiser les sources.",
+    "levelsColumn": "Évaluer à plusieurs niveaux."
   },
   "ru": {
     "documentTitle": "Метапознание в мировом масштабе — краткий доклад",
@@ -687,17 +644,16 @@ const translations = {
     "level-classroom": "Класс",
     "level-grade": "Год обучения",
     "level-individual": "Учащийся",
-    "teacher-surveys": "Опросы учителей",
-    "student-surveys": "Опросы учащихся",
+    "teacher-surveys": "Опросы учителей · 2 050",
+    "student-surveys": "Опросы учащихся · 15 790",
     "leadership-interviews": "Интервью с руководством школ",
     "classroom-observations": "Наблюдения на уроках",
-    "platform-records": "Данные об использовании платформы",
+    "platform-records": "Данные об использовании платформы · 500 000+",
     "student-test-scores": "Результаты тестирования учащихся",
     "evaluation-map-title": "Источники данных по уровням оценки",
     "evaluation-map-desc": "Пять связанных уровней: глобальные опросы учителей и учащихся, интервью с руководством школ, наблюдения на уроках, данные платформы по годам обучения и индивидуальные результаты тестирования.",
-    "student-count": "Анкет учащихся",
-    "teacher-count": "Анкет учителей",
-    "record-count": "Записей об использовании платформы"
+    "evidenceColumn": "Сопоставлять доказательства.",
+    "levelsColumn": "Оценивать на разных уровнях."
   },
   "es": {
     "documentTitle": "Metacognición a escala mundial — Resumen ejecutivo",
@@ -719,17 +675,16 @@ const translations = {
     "level-classroom": "Aula",
     "level-grade": "Grado",
     "level-individual": "Individual",
-    "teacher-surveys": "Encuestas al profesorado",
-    "student-surveys": "Encuestas al alumnado",
+    "teacher-surveys": "Encuestas al profesorado · 2.050",
+    "student-surveys": "Encuestas al alumnado · 15.790",
     "leadership-interviews": "Entrevistas con directivos",
     "classroom-observations": "Observaciones en el aula",
-    "platform-records": "Registros de uso de la plataforma",
+    "platform-records": "Registros de uso de la plataforma · 500.000+",
     "student-test-scores": "Resultados de pruebas del alumnado",
     "evaluation-map-title": "Fuentes de evidencia por nivel de evaluación",
     "evaluation-map-desc": "Cinco niveles conectados: encuestas al profesorado y al alumnado a escala global, entrevistas con directivos, observaciones en el aula, registros de uso de la plataforma por grado y resultados individuales de las pruebas.",
-    "student-count": "Encuestas al alumnado",
-    "teacher-count": "Encuestas al profesorado",
-    "record-count": "Registros de uso de la plataforma"
+    "evidenceColumn": "Contrastar la evidencia.",
+    "levelsColumn": "Evaluar en varios niveles."
   }
 };
 const toolbarLabels = {

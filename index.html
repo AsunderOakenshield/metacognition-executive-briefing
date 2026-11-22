@@ -407,26 +407,41 @@ nav{column-gap:14px;row-gap:6px}
 /* Approach slide */
 #evidence .frame{gap:.7cqw}
 #evidence #evidence-title{font-size:4.55cqw;margin:0}
-.approach-steps{
- display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4.2cqw;
- margin:auto 0;padding:0
-}
-.approach-column{min-width:0}
-.approach-art{height:clamp(40px,7cqw,90px);border-bottom:1px solid var(--line);margin-bottom:1.05cqw}
-.approach-steps h3{color:var(--ink);font-size:clamp(16px,1.78cqw,24px);line-height:1.2}
-.approach-steps p{color:var(--muted);font-size:clamp(14px,1.36cqw,18px);line-height:1.48;margin-top:.5em}
+
+
+
+
 
 
 
 @media screen and (max-width:740px){
  #evidence #evidence-title{font-size:7.2cqw}
- .approach-steps{grid-template-columns:1fr;gap:18px;margin:15px 0}
- .approach-art{margin-bottom:8px}
+
+
 
 }
 @media print{
  #evidence #evidence-title{font-size:4.5cqw}
- .approach-steps p{font-size:1.29cqw}
+
+}
+/* Evaluation levels and their evidence sources */
+.evaluation-map{margin:auto 0;overflow-x:auto;direction:ltr}
+.evaluation-map svg{display:block;width:100%;max-width:1070px;min-width:630px;margin-inline:auto}
+.map-spine{stroke:var(--line);stroke-width:1.2;fill:none}
+.map-plane{fill:var(--accent);fill-opacity:.14;stroke:var(--accent);stroke-opacity:.69;stroke-width:1.35}
+.map-plane-edge{fill:var(--accent);fill-opacity:.19;stroke:var(--accent);stroke-opacity:.38}
+.map-icon{fill:none;stroke:var(--highlight);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.map-icon.secondary{stroke:var(--accent)}
+.map-level,.map-source{font-family:inherit;fill:var(--ink)}
+.map-level{font-size:23px;font-weight:730;text-anchor:end}
+.map-source{font-size:19px;font-weight:550}
+.map-source.secondary{fill:var(--accent)}
+[lang="ar"] .map-level{direction:rtl;text-anchor:start}
+[lang="ar"] .map-source{direction:rtl;text-anchor:end}
+@media screen and (max-width:740px){.evaluation-map{margin:14px 0}}
+@media print{
+ .evaluation-map{overflow:visible}
+ .evaluation-map svg{width:77cqw;min-width:0;max-width:100%}
 }
 </style></head>
 <body><main>
@@ -453,11 +468,48 @@ nav{column-gap:14px;row-gap:6px}
 <section id="evidence" aria-labelledby="evidence-title"><div class="frame">
 <div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="Decision">01</a><a href="#evidence" data-page="evidence" aria-label="02 · THE APPROACH" aria-current="page">02 <span class="tab-name">THE APPROACH</span></a></div>
 <h2 id="evidence-title">A fuller understanding of impact, at every level.</h2>
-<div class="approach-steps">
-<div class="approach-column"><div class="approach-art" aria-hidden="true"></div><h3 id="evidence-sources-heading">Across evidence sources</h3><p id="evidence-sources-copy">Surveys, interviews, observations, platform records, and outcomes.</p></div>
-<div class="approach-column"><div class="approach-art" aria-hidden="true"></div><h3 id="evaluation-levels-heading">Across evaluation levels</h3><p id="evaluation-levels-copy">Global trends, school-level insights, and individual outcomes.</p></div>
-</div>
-
+<figure class="evaluation-map">
+<svg viewBox="0 0 1060 415" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="evaluation-map-title evaluation-map-desc">
+<title id="evaluation-map-title">Evidence sources by evaluation level</title>
+<desc id="evaluation-map-desc">Five aligned levels map specific evidence sources: global teacher and student surveys, school leadership interviews, classroom observations, grade-level platform usage records, and individual student test scores.</desc>
+<path class="map-spine" d="M228 59V368 M616 59V368"/>
+<g class="map-layer">
+<polygon class="map-plane-edge" points="228,59 402,90 616,59 616,64 402,95 228,64"/>
+<polygon class="map-plane" points="228,59 442,29 616,59 402,90"/>
+<g class="map-icon" transform="translate(395 54)"><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-7h3m3 0h6m-12 6h3m3 0h6m-12 6h3m3 0h6"/></g><g class="map-icon secondary" transform="translate(451 54)"><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-7h3m3 0h6m-12 6h3m3 0h6m-12 6h3m3 0h6"/></g>
+<text class="map-level" x="203" y="64" id="level-global">Global</text>
+<text class="map-source" x="649" y="52" id="teacher-surveys">Teacher Surveys</text><text class="map-source secondary" x="649" y="74" id="student-surveys">Student Surveys</text>
+</g>
+<g class="map-layer">
+<polygon class="map-plane-edge" points="228,135 402,166 616,135 616,140 402,171 228,140"/>
+<polygon class="map-plane" points="228,135 442,105 616,135 402,166"/>
+<g class="map-icon" transform="translate(422 130)"><path d="M-15-12H7a4 4 0 0 1 4 4V3a4 4 0 0 1-4 4H-5l-7 5V7h-3a3 3 0 0 1-3-3V-9a3 3 0 0 1 3-3Z"/><path d="M14-4h3v13h-4v5l-6-5m-18-14H4m-15 5H1"/></g>
+<text class="map-level" x="203" y="140" id="level-school">School</text>
+<text class="map-source" x="649" y="140" id="leadership-interviews">Leadership Interviews</text>
+</g>
+<g class="map-layer">
+<polygon class="map-plane-edge" points="228,211 402,242 616,211 616,216 402,247 228,216"/>
+<polygon class="map-plane" points="228,211 442,181 616,211 402,242"/>
+<g class="map-icon" transform="translate(422 206)"><path d="M-18 0Q0-20 18 0 0 20-18 0Z"/><circle r="5.5"/></g>
+<text class="map-level" x="203" y="216" id="level-classroom">Classroom</text>
+<text class="map-source" x="649" y="216" id="classroom-observations">Classroom Observations</text>
+</g>
+<g class="map-layer">
+<polygon class="map-plane-edge" points="228,287 402,318 616,287 616,292 402,323 228,292"/>
+<polygon class="map-plane" points="228,287 442,257 616,287 402,318"/>
+<g class="map-icon" transform="translate(422 282)"><rect x="-16" y="-13" width="32" height="26" rx="3"/><path d="M-16-6h32M-9 6V1m8 5V-1m8 7V-4"/></g>
+<text class="map-level" x="203" y="292" id="level-grade">Grade</text>
+<text class="map-source" x="649" y="292" id="platform-records">Platform Usage Records</text>
+</g>
+<g class="map-layer">
+<polygon class="map-plane-edge" points="228,363 402,394 616,363 616,368 402,399 228,368"/>
+<polygon class="map-plane" points="228,363 442,333 616,363 402,394"/>
+<g class="map-icon" transform="translate(422 358)"><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-3l4 4 8-8M-6 6H6"/></g>
+<text class="map-level" x="203" y="368" id="level-individual">Individual</text>
+<text class="map-source" x="649" y="368" id="student-test-scores">Student Test Scores</text>
+</g>
+</svg>
+</figure>
 <p class="copyright"><bdi dir="ltr">&copy; 2026 Zhexun Xin.</bdi> <span class="rights-reserved">All rights reserved.</span></p>
 </div></section>
 </main>
@@ -484,10 +536,19 @@ const textTargets = {
   "backgroundCopy": "#background-copy",
   "rightsReserved": ".rights-reserved",
   "evidence-title": "#evidence-title",
-  "evidence-sources-heading": "#evidence-sources-heading",
-  "evidence-sources-copy": "#evidence-sources-copy",
-  "evaluation-levels-heading": "#evaluation-levels-heading",
-  "evaluation-levels-copy": "#evaluation-levels-copy"
+  "level-global": "#level-global",
+  "level-school": "#level-school",
+  "level-classroom": "#level-classroom",
+  "level-grade": "#level-grade",
+  "level-individual": "#level-individual",
+  "teacher-surveys": "#teacher-surveys",
+  "student-surveys": "#student-surveys",
+  "leadership-interviews": "#leadership-interviews",
+  "classroom-observations": "#classroom-observations",
+  "platform-records": "#platform-records",
+  "student-test-scores": "#student-test-scores",
+  "evaluation-map-title": "#evaluation-map-title",
+  "evaluation-map-desc": "#evaluation-map-desc"
 };
 const translations = {
   "zh": {
@@ -505,10 +566,19 @@ const translations = {
     "backgroundCopy": "这项纵向评估研究了一个全球学习项目在不同学校情境中的实施情况和成果。",
     "rightsReserved": "保留所有权利。",
     "evidence-title": "更全面地理解各个层级的影响。",
-    "evidence-sources-heading": "跨证据来源",
-    "evidence-sources-copy": "问卷、访谈、观察、平台记录和成果数据。",
-    "evaluation-levels-heading": "跨评估层级",
-    "evaluation-levels-copy": "全球趋势、学校层面的洞察和个体成果。"
+    "level-global": "全球",
+    "level-school": "学校",
+    "level-classroom": "课堂",
+    "level-grade": "年级",
+    "level-individual": "个体",
+    "teacher-surveys": "教师问卷",
+    "student-surveys": "学生问卷",
+    "leadership-interviews": "学校领导访谈",
+    "classroom-observations": "课堂观察",
+    "platform-records": "平台使用记录",
+    "student-test-scores": "学生测验成绩",
+    "evaluation-map-title": "按评估层级划分的证据来源",
+    "evaluation-map-desc": "五个相连层级各有对应证据：全球层面的教师和学生问卷、学校领导访谈、课堂观察、年级层面的平台使用记录，以及个体学生的测验成绩。"
   },
   "ar": {
     "documentTitle": "مبادرة عالمية لما وراء المعرفة — موجز تنفيذي",
@@ -525,10 +595,19 @@ const translations = {
     "backgroundCopy": "تقييم طولي لمبادرة تعليمية عالمية يدرس التنفيذ والنتائج في سياقات مدرسية متنوعة.",
     "rightsReserved": "جميع الحقوق محفوظة.",
     "evidence-title": "فهم أشمل للأثر على كل مستوى.",
-    "evidence-sources-heading": "عبر مصادر الأدلة",
-    "evidence-sources-copy": "الاستبيانات والمقابلات والملاحظات وسجلات المنصة والنتائج.",
-    "evaluation-levels-heading": "عبر مستويات التقييم",
-    "evaluation-levels-copy": "الاتجاهات العالمية والرؤى على مستوى المدارس والنتائج الفردية."
+    "level-global": "عالمي",
+    "level-school": "المدرسة",
+    "level-classroom": "الفصل الدراسي",
+    "level-grade": "الصف الدراسي",
+    "level-individual": "الفرد",
+    "teacher-surveys": "استبيانات المعلمين",
+    "student-surveys": "استبيانات الطلاب",
+    "leadership-interviews": "مقابلات القيادات المدرسية",
+    "classroom-observations": "الملاحظات الصفية",
+    "platform-records": "سجلات استخدام المنصة",
+    "student-test-scores": "درجات اختبارات الطلاب",
+    "evaluation-map-title": "مصادر الأدلة بحسب مستوى التقييم",
+    "evaluation-map-desc": "خمسة مستويات مترابطة: استبيانات المعلمين والطلاب على المستوى العالمي، ومقابلات القيادات المدرسية، والملاحظات الصفية، وسجلات استخدام المنصة بحسب الصف، ودرجات اختبارات الطلاب على المستوى الفردي."
   },
   "fr": {
     "documentTitle": "Métacognition à l’échelle mondiale — Synthèse stratégique",
@@ -545,10 +624,19 @@ const translations = {
     "backgroundCopy": "Une évaluation longitudinale d’une initiative mondiale d’apprentissage qui examine sa mise en œuvre et ses résultats dans différents contextes scolaires.",
     "rightsReserved": "Tous droits réservés.",
     "evidence-title": "Une compréhension plus complète de l’impact à chaque niveau.",
-    "evidence-sources-heading": "Croiser les sources de données",
-    "evidence-sources-copy": "Enquêtes, entretiens, observations, données de la plateforme et résultats.",
-    "evaluation-levels-heading": "Explorer les niveaux d’évaluation",
-    "evaluation-levels-copy": "Tendances mondiales, enseignements à l’échelle des écoles et résultats individuels."
+    "level-global": "Monde",
+    "level-school": "École",
+    "level-classroom": "Classe",
+    "level-grade": "Niveau scolaire",
+    "level-individual": "Individu",
+    "teacher-surveys": "Enquêtes auprès des enseignants",
+    "student-surveys": "Enquêtes auprès des élèves",
+    "leadership-interviews": "Entretiens avec la direction",
+    "classroom-observations": "Observations en classe",
+    "platform-records": "Traces d’utilisation de la plateforme",
+    "student-test-scores": "Résultats aux tests des élèves",
+    "evaluation-map-title": "Sources de données par niveau d’évaluation",
+    "evaluation-map-desc": "Cinq niveaux relient les sources à leur échelle : enquêtes auprès des enseignants et des élèves au niveau mondial, entretiens avec les directions, observations en classe, traces de la plateforme par niveau scolaire et résultats individuels aux tests."
   },
   "ru": {
     "documentTitle": "Метапознание в мировом масштабе — краткий доклад",
@@ -565,10 +653,19 @@ const translations = {
     "backgroundCopy": "Лонгитюдная оценка глобальной образовательной инициативы изучала её внедрение и результаты в разных школьных контекстах.",
     "rightsReserved": "Все права защищены.",
     "evidence-title": "Более полное понимание эффекта на каждом уровне.",
-    "evidence-sources-heading": "Разные источники данных",
-    "evidence-sources-copy": "Опросы, интервью, наблюдения, записи платформы и результаты.",
-    "evaluation-levels-heading": "Разные уровни оценки",
-    "evaluation-levels-copy": "Глобальные тенденции, выводы на уровне школ и индивидуальные результаты."
+    "level-global": "Мир",
+    "level-school": "Школа",
+    "level-classroom": "Класс",
+    "level-grade": "Год обучения",
+    "level-individual": "Учащийся",
+    "teacher-surveys": "Опросы учителей",
+    "student-surveys": "Опросы учащихся",
+    "leadership-interviews": "Интервью с руководством школ",
+    "classroom-observations": "Наблюдения на уроках",
+    "platform-records": "Данные об использовании платформы",
+    "student-test-scores": "Результаты тестирования учащихся",
+    "evaluation-map-title": "Источники данных по уровням оценки",
+    "evaluation-map-desc": "Пять связанных уровней: глобальные опросы учителей и учащихся, интервью с руководством школ, наблюдения на уроках, данные платформы по годам обучения и индивидуальные результаты тестирования."
   },
   "es": {
     "documentTitle": "Metacognición a escala mundial — Resumen ejecutivo",
@@ -585,10 +682,19 @@ const translations = {
     "backgroundCopy": "Una evaluación longitudinal de una iniciativa global de aprendizaje que examina su implementación y sus resultados en distintos contextos escolares.",
     "rightsReserved": "Todos los derechos reservados.",
     "evidence-title": "Una comprensión más completa del impacto en todos los niveles.",
-    "evidence-sources-heading": "Distintas fuentes de evidencia",
-    "evidence-sources-copy": "Encuestas, entrevistas, observaciones, registros de la plataforma y resultados.",
-    "evaluation-levels-heading": "Distintos niveles de evaluación",
-    "evaluation-levels-copy": "Tendencias globales, hallazgos por escuela y resultados individuales."
+    "level-global": "Global",
+    "level-school": "Escuela",
+    "level-classroom": "Aula",
+    "level-grade": "Grado",
+    "level-individual": "Individual",
+    "teacher-surveys": "Encuestas al profesorado",
+    "student-surveys": "Encuestas al alumnado",
+    "leadership-interviews": "Entrevistas con directivos",
+    "classroom-observations": "Observaciones en el aula",
+    "platform-records": "Registros de uso de la plataforma",
+    "student-test-scores": "Resultados de pruebas del alumnado",
+    "evaluation-map-title": "Fuentes de evidencia por nivel de evaluación",
+    "evaluation-map-desc": "Cinco niveles conectados: encuestas al profesorado y al alumnado a escala global, entrevistas con directivos, observaciones en el aula, registros de uso de la plataforma por grado y resultados individuales de las pruebas."
   }
 };
 const toolbarLabels = {

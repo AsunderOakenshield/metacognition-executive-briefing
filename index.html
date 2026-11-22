@@ -509,6 +509,16 @@ nav{column-gap:14px;row-gap:6px}
  #decision .implication{transform:none}
  #decision .research-layout::after{display:none}
 }
+/* Language-specific wrapping for the slide-sized canvas */
+:lang(zh) #decision h1{max-width:20em}
+:lang(zh) #evidence .approach-layout #evidence-title{line-height:1.35}
+:lang(ar) #evidence .approach-layout #evidence-title{line-height:1.35}
+:lang(ar) .implication p{line-height:1.6}
+@media screen and (min-width:901px){
+ :is(:lang(fr),:lang(ru),:lang(es)) #evidence .approach-layout{grid-template-columns:minmax(0,.44fr) minmax(0,1fr)}
+ :is(:lang(fr),:lang(ru),:lang(es)) #evidence .approach-layout #evidence-title{font-size:3.9cqw}
+ :is(:lang(fr),:lang(ru),:lang(es)) #decision h1{font-size:4.15cqw}
+}
 </style></head>
 <body><main>
 <section id="decision" aria-labelledby="decision-title"><div class="frame">
@@ -771,6 +781,43 @@ const labels = {
   ru: ['Навигация по слайдам', 'Школа'],
   es: ['Navegación de diapositivas', 'Escuela']
 };
+const approachTitleParts = {
+  "zh": [
+    "",
+    "更全面",
+    "地理解影响，",
+    "贯穿每个层级",
+    "。"
+  ],
+  "ar": [
+    "فهم ",
+    "أشمل",
+    " للأثر،",
+    "على كل مستوى",
+    "."
+  ],
+  "fr": [
+    "Une compréhension ",
+    "plus complète",
+    " de l’impact,",
+    "à chaque niveau",
+    "."
+  ],
+  "ru": [
+    "",
+    "Более полное",
+    " понимание эффекта",
+    "на каждом уровне",
+    "."
+  ],
+  "es": [
+    "Una comprensión ",
+    "más completa",
+    " del impacto,",
+    "en todos los niveles",
+    "."
+  ]
+};
 const localizedNodes = Object.entries(textTargets).flatMap(([key, selector]) =>
   Array.from(document.querySelectorAll(selector), node => ({ key, node, original: node.cloneNode(true) }))
 );
@@ -794,6 +841,17 @@ function setLanguage(locale) {
       node.replaceChildren(...Array.from(original.childNodes, child => child.cloneNode(true)));
       return;
     }
+    if (key === 'evidence-title') {
+      const [prefix, first, middle, last, punctuation] = approachTitleParts[locale];
+      const emphasis = text => {
+        const span = document.createElement('span');
+        span.className = 'approach-emphasis';
+        span.textContent = text;
+        return span;
+      };
+      node.replaceChildren(prefix, emphasis(first), middle, document.createElement('br'), emphasis(last), punctuation);
+      return;
+    }
     node.textContent = messages[key];
   });
   const numberFormatter = new Intl.NumberFormat(locale === 'ar' ? 'ar-EG' : 'en');
@@ -810,6 +868,12 @@ function setLanguage(locale) {
       const tab = link.querySelector('.tab-name');
       if (tab) tab.textContent = name;
     });
+  });
+  document.querySelectorAll('.evaluation-map :is(.map-source,.map-column,.map-level)').forEach(label => {
+    label.style.removeProperty('font-size');
+    const limit = label.classList.contains('map-column-level') || label.classList.contains('map-level') ? 248 : 350;
+    const width = label.getComputedTextLength();
+    if (width > limit) label.style.fontSize = (parseFloat(getComputedStyle(label).fontSize) * limit / width) + 'px';
   });
   remember('briefing-language', locale);
 }

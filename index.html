@@ -443,6 +443,9 @@ nav{column-gap:14px;row-gap:6px}
  .evaluation-map{overflow:visible}
  .evaluation-map svg{width:77cqw;min-width:0;max-width:100%}
 }
+#decision .project-facts{row-gap:clamp(8px,.92cqw,13px)}
+#decision .project-facts dd{font-size:clamp(22px,3.05cqw,41px);white-space:nowrap;unicode-bidi:isolate}
+@media print{#decision .project-facts dd{font-size:2.8cqw}}
 </style></head>
 <body><main>
 <section id="decision" aria-labelledby="decision-title"><div class="frame">
@@ -459,6 +462,9 @@ nav{column-gap:14px;row-gap:6px}
 <div><dt id="schools-label">Schools</dt><dd data-study-number="34">34</dd></div>
 <div><dt id="countries-label">Countries</dt><dd data-study-number="20">20</dd></div>
 <div><dt id="years-label">Years</dt><dd data-study-number="3">3</dd></div>
+<div><dt id="student-count">Student surveys</dt><dd data-study-number="15790">15,790</dd></div>
+<div><dt id="teacher-count">Teacher surveys</dt><dd data-study-number="2050">2,050</dd></div>
+<div><dt id="record-count">Platform use records</dt><dd data-study-number="500000" data-suffix="+">500,000+</dd></div>
 </dl>
 <p id="background-copy">A longitudinal evaluation of a global learning initiative, examining implementation and outcomes across diverse school contexts.</p>
 </div>
@@ -548,7 +554,10 @@ const textTargets = {
   "platform-records": "#platform-records",
   "student-test-scores": "#student-test-scores",
   "evaluation-map-title": "#evaluation-map-title",
-  "evaluation-map-desc": "#evaluation-map-desc"
+  "evaluation-map-desc": "#evaluation-map-desc",
+  "student-count": "#student-count",
+  "teacher-count": "#teacher-count",
+  "record-count": "#record-count"
 };
 const translations = {
   "zh": {
@@ -578,7 +587,10 @@ const translations = {
     "platform-records": "平台使用记录",
     "student-test-scores": "学生测验成绩",
     "evaluation-map-title": "按评估层级划分的证据来源",
-    "evaluation-map-desc": "五个相连层级各有对应证据：全球层面的教师和学生问卷、学校领导访谈、课堂观察、年级层面的平台使用记录，以及个体学生的测验成绩。"
+    "evaluation-map-desc": "五个相连层级各有对应证据：全球层面的教师和学生问卷、学校领导访谈、课堂观察、年级层面的平台使用记录，以及个体学生的测验成绩。",
+    "student-count": "份学生问卷",
+    "teacher-count": "份教师问卷",
+    "record-count": "条平台使用记录"
   },
   "ar": {
     "documentTitle": "مبادرة عالمية لما وراء المعرفة — موجز تنفيذي",
@@ -607,7 +619,10 @@ const translations = {
     "platform-records": "سجلات استخدام المنصة",
     "student-test-scores": "درجات اختبارات الطلاب",
     "evaluation-map-title": "مصادر الأدلة بحسب مستوى التقييم",
-    "evaluation-map-desc": "خمسة مستويات مترابطة: استبيانات المعلمين والطلاب على المستوى العالمي، ومقابلات القيادات المدرسية، والملاحظات الصفية، وسجلات استخدام المنصة بحسب الصف، ودرجات اختبارات الطلاب على المستوى الفردي."
+    "evaluation-map-desc": "خمسة مستويات مترابطة: استبيانات المعلمين والطلاب على المستوى العالمي، ومقابلات القيادات المدرسية، والملاحظات الصفية، وسجلات استخدام المنصة بحسب الصف، ودرجات اختبارات الطلاب على المستوى الفردي.",
+    "student-count": "استبيانًا للطلاب",
+    "teacher-count": "استبيانًا للمعلمين",
+    "record-count": "سجل لاستخدام المنصة"
   },
   "fr": {
     "documentTitle": "Métacognition à l’échelle mondiale — Synthèse stratégique",
@@ -636,7 +651,10 @@ const translations = {
     "platform-records": "Traces d’utilisation de la plateforme",
     "student-test-scores": "Résultats aux tests des élèves",
     "evaluation-map-title": "Sources de données par niveau d’évaluation",
-    "evaluation-map-desc": "Cinq niveaux relient les sources à leur échelle : enquêtes auprès des enseignants et des élèves au niveau mondial, entretiens avec les directions, observations en classe, traces de la plateforme par niveau scolaire et résultats individuels aux tests."
+    "evaluation-map-desc": "Cinq niveaux relient les sources à leur échelle : enquêtes auprès des enseignants et des élèves au niveau mondial, entretiens avec les directions, observations en classe, traces de la plateforme par niveau scolaire et résultats individuels aux tests.",
+    "student-count": "Réponses aux enquêtes élèves",
+    "teacher-count": "Réponses aux enquêtes enseignants",
+    "record-count": "Traces d’utilisation de la plateforme"
   },
   "ru": {
     "documentTitle": "Метапознание в мировом масштабе — краткий доклад",
@@ -665,7 +683,10 @@ const translations = {
     "platform-records": "Данные об использовании платформы",
     "student-test-scores": "Результаты тестирования учащихся",
     "evaluation-map-title": "Источники данных по уровням оценки",
-    "evaluation-map-desc": "Пять связанных уровней: глобальные опросы учителей и учащихся, интервью с руководством школ, наблюдения на уроках, данные платформы по годам обучения и индивидуальные результаты тестирования."
+    "evaluation-map-desc": "Пять связанных уровней: глобальные опросы учителей и учащихся, интервью с руководством школ, наблюдения на уроках, данные платформы по годам обучения и индивидуальные результаты тестирования.",
+    "student-count": "Анкет учащихся",
+    "teacher-count": "Анкет учителей",
+    "record-count": "Записей об использовании платформы"
   },
   "es": {
     "documentTitle": "Metacognición a escala mundial — Resumen ejecutivo",
@@ -694,7 +715,10 @@ const translations = {
     "platform-records": "Registros de uso de la plataforma",
     "student-test-scores": "Resultados de pruebas del alumnado",
     "evaluation-map-title": "Fuentes de evidencia por nivel de evaluación",
-    "evaluation-map-desc": "Cinco niveles conectados: encuestas al profesorado y al alumnado a escala global, entrevistas con directivos, observaciones en el aula, registros de uso de la plataforma por grado y resultados individuales de las pruebas."
+    "evaluation-map-desc": "Cinco niveles conectados: encuestas al profesorado y al alumnado a escala global, entrevistas con directivos, observaciones en el aula, registros de uso de la plataforma por grado y resultados individuales de las pruebas.",
+    "student-count": "Encuestas al alumnado",
+    "teacher-count": "Encuestas al profesorado",
+    "record-count": "Registros de uso de la plataforma"
   }
 };
 const toolbarLabels = {
@@ -748,7 +772,7 @@ function setLanguage(locale) {
   });
   const numberFormatter = new Intl.NumberFormat(locale === 'ar' ? 'ar-EG' : 'en');
   document.querySelectorAll('[data-study-number]').forEach(stat => {
-    stat.textContent = numberFormatter.format(Number(stat.dataset.studyNumber));
+    stat.textContent = numberFormatter.format(Number(stat.dataset.studyNumber)) + (stat.dataset.suffix || '');
   });
   const [navigation] = labels[locale];
   document.querySelector('.utility-bar').setAttribute('aria-label', toolbarLabels[locale]);

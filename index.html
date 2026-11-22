@@ -458,6 +458,26 @@ nav{column-gap:14px;row-gap:6px}
 .iso-fill{fill:var(--accent);fill-opacity:.12}
 .map-world{fill-opacity:.22;stroke-width:1.15}
 .evaluation-map svg{max-width:1040px}
+/* Side-by-side research and approach layouts */
+.research-layout,.approach-layout{display:grid;align-items:center}
+.research-layout{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:3.2cqw}
+#decision .research-layout #background-copy{margin:0;font-size:clamp(14px,1.42cqw,19px);line-height:1.5}
+.approach-layout{grid-template-columns:minmax(0,.37fr) minmax(0,1fr);gap:2.1cqw;margin:auto 0}
+#evidence .approach-layout #evidence-title{font-size:clamp(26px,3.25cqw,43px);line-height:1.13;text-wrap:balance}
+.approach-layout .evaluation-map{margin:0}
+.approach-layout .evaluation-map svg{width:100%;min-width:600px}
+@media screen and (max-width:900px){
+ .approach-layout{grid-template-columns:minmax(0,1fr);gap:14px;margin:15px 0}
+ #evidence .approach-layout #evidence-title{font-size:clamp(26px,5cqw,39px)}
+}
+@media screen and (max-width:600px){
+ .research-layout{grid-template-columns:1fr;gap:12px}
+}
+@media print{
+ #evidence .approach-layout #evidence-title{font-size:3.15cqw}
+ .approach-layout .evaluation-map svg{min-width:0}
+ #decision .research-layout #background-copy{font-size:1.32cqw}
+}
 </style></head>
 <body><main>
 <section id="decision" aria-labelledby="decision-title"><div class="frame">
@@ -469,20 +489,20 @@ nav{column-gap:14px;row-gap:6px}
 <p>For Google’s global initiatives—from AI adoption to employee training and development—meaningful evaluation requires comparable evidence while accounting for differences in local cultures, resources, and implementation.</p>
 </div>
 <div class="project-background">
-<h2 id="background-heading">Project background</h2>
-<dl class="project-facts">
+<h2 id="background-heading">Research background</h2>
+<div class="research-layout"><dl class="project-facts">
 <div><dt id="schools-label">Schools</dt><dd data-study-number="34">34</dd></div>
 <div><dt id="countries-label">Countries</dt><dd data-study-number="20">20</dd></div>
 <div><dt id="years-label">Years</dt><dd data-study-number="3">3</dd></div>
 </dl>
-<p id="background-copy">A longitudinal evaluation of a global learning initiative, examining implementation and outcomes across diverse school contexts.</p>
+<p id="background-copy">A longitudinal evaluation of a global learning initiative, examining implementation and outcomes across diverse school contexts.</p></div>
 </div>
 </div>
 <p class="copyright"><bdi dir="ltr">&copy; 2026 Zhexun Xin.</bdi> <span class="rights-reserved">All rights reserved.</span></p>
 </div></section>
 <section id="evidence" aria-labelledby="evidence-title"><div class="frame">
 <div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="Decision">01</a><a href="#evidence" data-page="evidence" aria-label="02 · THE APPROACH" aria-current="page">02 <span class="tab-name">THE APPROACH</span></a></div>
-<h2 id="evidence-title">A fuller understanding of impact,<br> at every level.</h2>
+<div class="approach-layout"><h2 id="evidence-title">A fuller understanding of impact,<br> at every level.</h2>
 <figure class="evaluation-map">
 <svg viewBox="0 0 1060 425" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="evaluation-map-title evaluation-map-desc">
 <title id="evaluation-map-title">Evidence sources by evaluation level</title>
@@ -496,7 +516,7 @@ nav{column-gap:14px;row-gap:6px}
 <g class="map-layer"><path class="map-plane" d="M471 235 607 214 743 235 607 259Z"/><path class="iso-rim" d="M471 235 607 259 743 235"/><circle class="iso-node" cx="607" cy="259" r="1.8"/><g class="map-outline" transform="translate(607 227)"><path class="iso-fill" d="M-33 9V2h17v-7H1v-7h17v-7h17V9Z"/><path d="M-33 2l5-3h12m0-4 5-3H1m0-4 5-3h12m0-4 5-3h17V6l-5 3M35-19l5-3M-16 2v7M1-5V9m17-16V9"/></g><text class="map-source" x="412" y="230" id="platform-records">Platform Usage Records · 500,000+</text><text class="map-level" x="802" y="230" id="level-grade">Grade</text></g>
 <g class="map-layer"><path class="map-plane" d="M489 309 607 288 725 309 607 333Z"/><path class="iso-rim" d="M489 309 607 333 725 309"/><circle class="iso-node" cx="607" cy="333" r="1.8"/><g class="map-outline" transform="translate(607 301)"><path class="iso-fill" d="M-43 6v-24L-8-30l51 13V6L-8-6Z"/><path d="M-8-30v24m7-17 34 9v8L-1-15ZM-35-16l8-3v8l-8 3zm12-4 8-3v8l-8 3z"/><g transform="translate(8 -2)"><path class="iso-fill" d="m-9 1 10-4 13 3-10 4z"/><path d="M-9 1v6M4 4v6m10-10v6"/></g><g transform="translate(-26 8)"><path class="iso-fill" d="m-6 0 7-3 8 2-7 3z"/><path d="M-6 0v5m8-3v5m7-8v5"/></g><g transform="translate(-4 13)"><path class="iso-fill" d="m-6 0 7-3 8 2-7 3z"/><path d="M-6 0v5m8-3v5m7-8v5"/></g><g transform="translate(20 9)"><path class="iso-fill" d="m-6 0 7-3 8 2-7 3z"/><path d="M-6 0v5m8-3v5m7-8v5"/></g></g><text class="map-source" x="412" y="304" id="classroom-observations">Classroom Observations · 10</text><text class="map-level" x="802" y="304" id="level-classroom">Classroom</text></g>
 <g class="map-layer"><path class="map-plane" d="M510 383 607 362 704 383 607 407Z"/><path class="iso-rim" d="M510 383 607 407 704 383"/><circle class="iso-node" cx="607" cy="407" r="1.8"/><g class="map-outline" transform="translate(607 375)"><circle cy="-12" r="8"/><path d="M-17 13a17 17 0 0 1 34 0"/></g><text class="map-source" x="412" y="378" id="student-test-scores">Student Test Scores · ~5,000</text><text class="map-level" x="802" y="378" id="level-individual">Individual</text></g></svg>
-</figure>
+</figure></div>
 <p class="copyright"><bdi dir="ltr">&copy; 2026 Zhexun Xin.</bdi> <span class="rights-reserved">All rights reserved.</span></p>
 </div></section>
 </main>
@@ -548,7 +568,7 @@ const translations = {
     "colorMode": "色觉友好模式",
     "print": "打印 / PDF",
     "googleHeading": "为什么这对 Google 重要",
-    "backgroundHeading": "项目背景",
+    "backgroundHeading": "研究背景",
     "schools": "所学校",
     "countries": "个国家",
     "years": "年",
@@ -579,7 +599,7 @@ const translations = {
     "colorMode": "ألوان ملائمة لعمى الألوان",
     "print": "طباعة / ⁦PDF⁩",
     "googleHeading": "لماذا يهمّ هذا Google؟",
-    "backgroundHeading": "خلفية المشروع",
+    "backgroundHeading": "خلفية البحث",
     "schools": "مدرسة",
     "countries": "دولة",
     "years": "سنوات",
@@ -610,7 +630,7 @@ const translations = {
     "colorMode": "Mode daltonisme",
     "print": "Imprimer / PDF",
     "googleHeading": "Pourquoi c’est important pour Google",
-    "backgroundHeading": "Contexte du projet",
+    "backgroundHeading": "Contexte de la recherche",
     "schools": "Écoles",
     "countries": "Pays",
     "years": "Ans",
@@ -641,7 +661,7 @@ const translations = {
     "colorMode": "Режим для дальтонизма",
     "print": "Печать / PDF",
     "googleHeading": "Почему это важно для Google",
-    "backgroundHeading": "О проекте",
+    "backgroundHeading": "Контекст исследования",
     "schools": "Школы",
     "countries": "Стран",
     "years": "Года",
@@ -672,7 +692,7 @@ const translations = {
     "colorMode": "Modo para daltonismo",
     "print": "Imprimir / PDF",
     "googleHeading": "Por qué le importa a Google",
-    "backgroundHeading": "Contexto del proyecto",
+    "backgroundHeading": "Contexto de la investigación",
     "schools": "Escuelas",
     "countries": "Países",
     "years": "Años",

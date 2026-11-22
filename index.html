@@ -404,10 +404,35 @@ nav{column-gap:14px;row-gap:6px}
  #decision .decision-summary h2{font-size:1.1cqw}
  .project-facts dt,#background-copy{font-size:1.15cqw}
 }
+/* Approach slide */
+#evidence .frame{gap:.7cqw}
+#evidence #evidence-title{font-size:4.55cqw;margin:0}
+.approach-steps{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.65cqw;
+ margin:auto 0;padding:0;list-style:none;counter-reset:step
+}
+.approach-steps li{counter-increment:step;min-width:0}
+.approach-art{height:clamp(40px,7cqw,90px);border-bottom:1px solid var(--line);margin-bottom:1.05cqw}
+.approach-steps h3{color:var(--ink);font-size:clamp(16px,1.78cqw,24px);line-height:1.2}
+.approach-steps h3::before{content:counter(step) '. ';color:var(--highlight)}
+.approach-steps p,.approach-takeaway p{color:var(--muted);font-size:clamp(14px,1.36cqw,18px);line-height:1.48;margin-top:.5em}
+.approach-takeaway{border-top:1px solid var(--line);padding-top:.8cqw}
+.approach-takeaway h3{color:var(--accent);font-size:clamp(12px,1.15cqw,15px);letter-spacing:.075em;text-transform:uppercase}
+.approach-takeaway p{color:var(--ink);font-weight:650}
+@media screen and (max-width:740px){
+ #evidence #evidence-title{font-size:7.2cqw}
+ .approach-steps{grid-template-columns:1fr;gap:18px;margin:15px 0}
+ .approach-art{margin-bottom:8px}
+ .approach-takeaway{padding-top:12px}
+}
+@media print{
+ #evidence #evidence-title{font-size:4.5cqw}
+ .approach-steps p,.approach-takeaway p{font-size:1.29cqw}
+}
 </style></head>
 <body><main>
 <section id="decision" aria-labelledby="decision-title"><div class="frame">
-<div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="01 · The Challenge" aria-current="page">01 <span class="tab-name">The Challenge</span></a><a href="#evidence" data-page="evidence" aria-label="Evidence">02</a></div>
+<div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="01 · The Challenge" aria-current="page">01 <span class="tab-name">The Challenge</span></a><a href="#evidence" data-page="evidence" aria-label="Approach">02</a></div>
 <h1 id="decision-title">How do we evaluate global impact without ignoring local differences?</h1>
 <div class="decision-summary">
 <div class="implication">
@@ -426,27 +451,14 @@ nav{column-gap:14px;row-gap:6px}
 </div>
 </div></section>
 <section id="evidence" aria-labelledby="evidence-title"><div class="frame">
-<div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="Decision">01</a><a href="#evidence" data-page="evidence" aria-label="02 · The Evidence" aria-current="page">02 <span class="tab-name">The Evidence</span></a></div>
-<header class="evidence-header"><h2 id="evidence-title">Different implementation paths<br class="title-break"> can still lead to positive outcomes.</h2>
-</header>
-<div class="evidence">
-<figure class="chart"><figcaption id="chart-title">Metacognitive Digital Platform records by school and grade</figcaption>
-<p class="meta" id="chart-meta">2025&ndash;26 &#183; 11 anonymized schools &#183; 2,488 records</p>
-<table aria-labelledby="chart-title" aria-describedby="chart-meta"><thead><tr><th scope="col">Grade</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th><th scope="col">6</th><th scope="col">7</th><th scope="col">8</th><th scope="col">9</th><th scope="col">10</th><th scope="col">11</th><th scope="col">12</th></tr></thead><tbody><tr><th scope="row">School 1</th><td class="tone-2">32</td><td class="tone-0">0</td><td class="tone-1">15</td><td class="tone-2">35</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 2</th><td class="tone-3">56</td><td class="tone-4">111</td><td class="tone-4">130</td><td class="tone-3">83</td><td class="tone-1">2</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 3</th><td class="tone-0">0</td><td class="tone-3">61</td><td class="tone-1">1</td><td class="tone-1">22</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 4</th><td class="tone-0">0</td><td class="tone-2">47</td><td class="tone-4">107</td><td class="tone-2">30</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 5</th><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-3">62</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 6</th><td class="tone-0">0</td><td class="tone-1">1</td><td class="tone-0">0</td><td class="tone-1">2</td><td class="tone-3">99</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 7</th><td class="tone-2">54</td><td class="tone-2">44</td><td class="tone-2">49</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 8</th><td class="tone-4">142</td><td class="tone-4">110</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 9</th><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-5">203</td><td class="tone-5">163</td><td class="tone-5">159</td><td class="tone-5">199</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 10</th><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-5">185</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-1">1</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td></tr><tr><th scope="row">School 11</th><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-3">56</td><td class="tone-3">88</td><td class="tone-3">76</td><td class="tone-0">0</td><td class="tone-0">0</td><td class="tone-3">63</td><td class="tone-0">0</td></tr></tbody></table>
-<div class="foot"><span class="legend">0 <span class="ramp" aria-hidden="true"></span> 203 <span id="records">records</span></span></div>
-</figure>
-<ul class="evidence-findings">
-<li class="metric finding">
-<p class="finding-label"><strong class="finding-number" data-percent="69"><bdi>69%</bdi></strong> <span id="conditions-label">of teachers reported technological barriers.</span></p>
-<p class="detail" id="conditions-detail">Interviews showed that teachers used alternative platforms and paper-based activities to continue teaching metacognition.</p>
-</li>
-<li class="metric finding">
-<p class="finding-label"><strong class="finding-number" data-percent="61"><bdi>61%</bdi></strong> <span id="outcomes-label">of teachers reported improved student metacognition.</span></p>
-<p class="detail" id="outcomes-detail">Teachers perceived gains in student learning even as implementation varied across schools.</p>
-</li>
-</ul>
-</div>
-<p class="source"><span id="source-prefix">Sources:</span> <cite lang="en" dir="ltr">Honoring Individuality through the Evaluation of a Global Metacognition Project</cite> <span id="proposal-status">(AERA 2027 accepted proposal)</span><span aria-hidden="true"> · </span><span lang="en" dir="ltr">Nord Anglia Education, <cite>Metacognition Project Impact Report</cite> (2025)</span><span aria-hidden="true"> · </span><span id="project-sources">Project interviews and observations</span></p>
+<div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="Decision">01</a><a href="#evidence" data-page="evidence" aria-label="02 · The Approach" aria-current="page">02 <span class="tab-name">The Approach</span></a></div>
+<h2 id="evidence-title">How we measured implementation and impact</h2>
+<ol class="approach-steps">
+<li><div class="approach-art" aria-hidden="true"></div><h3 id="triangulate-heading">Triangulate multiple signals</h3><p id="triangulate-copy">Surveys, interviews, observations, outcome measures, and platform records captured different views of the program.</p></li>
+<li><div class="approach-art" aria-hidden="true"></div><h3 id="monitor-heading">Monitor continuously</h3><p id="monitor-copy">Dashboards and tailored reporting supported ongoing monitoring, timely feedback, and adjustment.</p></li>
+<li><div class="approach-art" aria-hidden="true"></div><h3 id="flexibility-heading">Preserve local flexibility</h3><p id="flexibility-copy">Schools and teachers adapted implementation to local needs and tools, while the evaluation maintained shared measures for comparison.</p></li>
+</ol>
+<div class="approach-takeaway"><h3 id="takeaway-heading">Takeaway</h3><p id="takeaway-copy">Global programs can be evaluated consistently without being implemented identically.</p></div>
 <p class="copyright"><bdi dir="ltr">&copy; 2026 Zhexun Xin.</bdi> <span id="rights-reserved">All rights reserved.</span></p>
 </div></section>
 </main>
@@ -462,19 +474,6 @@ const textTargets = {
   "documentTitle": "title",
   "decisionTitle": "#decision-title",
   "decisionCopy": ".implication p",
-  "evidenceTitle": "#evidence-title",
-  "chartTitle": "#chart-title",
-  "chartMeta": "#chart-meta",
-  "grade": "thead th:first-child",
-  "records": "#records",
-  "conditionsLabel": "#conditions-label",
-  "conditionsDetail": "#conditions-detail",
-  "outcomesLabel": "#outcomes-label",
-  "outcomesDetail": "#outcomes-detail",
-  "sourcePrefix": "#source-prefix",
-  "proposalStatus": "#proposal-status",
-  "projectSources": "#project-sources",
-  "rightsReserved": "#rights-reserved",
   "language": "#language-label",
   "colorMode": "#color-mode",
   "print": "#print",
@@ -483,26 +482,23 @@ const textTargets = {
   "schools": "#schools-label",
   "countries": "#countries-label",
   "years": "#years-label",
-  "backgroundCopy": "#background-copy"
+  "backgroundCopy": "#background-copy",
+  "rightsReserved": "#rights-reserved",
+  "evidence-title": "#evidence-title",
+  "triangulate-heading": "#triangulate-heading",
+  "triangulate-copy": "#triangulate-copy",
+  "monitor-heading": "#monitor-heading",
+  "monitor-copy": "#monitor-copy",
+  "flexibility-heading": "#flexibility-heading",
+  "flexibility-copy": "#flexibility-copy",
+  "takeaway-heading": "#takeaway-heading",
+  "takeaway-copy": "#takeaway-copy"
 };
 const translations = {
   "zh": {
     "documentTitle": "全球元认知项目｜高管简报",
     "decisionTitle": "如何评估全球影响，同时兼顾各地差异？",
     "decisionCopy": "全球员工发展、学习和 AI 推广项目，需要在统一评估与各地不同的文化、资源和组织需求之间取得平衡。",
-    "evidenceTitle": "不同的实施路径仍可带来积极成果。",
-    "chartTitle": "按学校和年级统计的元认知数字平台记录",
-    "chartMeta": "2025–26 学年 · 11 所匿名学校 · 2,488 条记录",
-    "grade": "年级",
-    "records": "条记录",
-    "conditionsLabel": "的教师报告遇到技术障碍。",
-    "conditionsDetail": "访谈显示，教师用替代平台和纸笔活动继续开展元认知教学。",
-    "outcomesLabel": "的教师报告学生的元认知有所改善。",
-    "outcomesDetail": "尽管各校的实施方式不同，教师仍认为学生的学习有所进步。",
-    "sourcePrefix": "来源：",
-    "proposalStatus": "（AERA 2027 已接收提案）",
-    "projectSources": "项目访谈与观察",
-    "rightsReserved": "保留所有权利。",
     "language": "语言",
     "colorMode": "色觉友好模式",
     "print": "打印 / PDF",
@@ -511,25 +507,22 @@ const translations = {
     "schools": "所学校",
     "countries": "个国家",
     "years": "年",
-    "backgroundCopy": "这项纵向评估研究了一个全球学习项目在不同学校情境中的实施情况和成果。"
+    "backgroundCopy": "这项纵向评估研究了一个全球学习项目在不同学校情境中的实施情况和成果。",
+    "rightsReserved": "保留所有权利。",
+    "evidence-title": "我们如何衡量实施与成效",
+    "triangulate-heading": "交叉验证多种证据",
+    "triangulate-copy": "问卷、访谈、观察、成果指标和平台记录从不同角度反映项目情况。",
+    "monitor-heading": "持续监测",
+    "monitor-copy": "数据看板和定制报告支持持续监测、及时反馈和调整。",
+    "flexibility-heading": "保留本地灵活性",
+    "flexibility-copy": "学校和教师根据当地需求和工具调整实施方式，评估则使用共同指标进行比较。",
+    "takeaway-heading": "核心结论",
+    "takeaway-copy": "全球项目可以采用一致的评估方式，同时允许各地采用不同的实施方式。"
   },
   "ar": {
     "documentTitle": "مبادرة عالمية لما وراء المعرفة — موجز تنفيذي",
     "decisionTitle": "كيف نقيّم الأثر العالمي من دون إغفال الفروق المحلية؟",
     "decisionCopy": "تتطلب المبادرات العالمية في تطوير الموظفين والتعلّم وتبنّي الذكاء الاصطناعي الموازنة بين اتساق التقييم وتنوّع الثقافات والموارد والاحتياجات المؤسسية المحلية.",
-    "evidenceTitle": "قد تؤدي مسارات التنفيذ المختلفة إلى نتائج إيجابية.",
-    "chartTitle": "سجلات المنصة الرقمية لما وراء المعرفة بحسب المدرسة والصف الدراسي",
-    "chartMeta": "⁦٢٠٢٥–٢٠٢٦⁩ · ١١ مدرسة لم تُذكر أسماؤها · ٢٬٤٨٨ سجلًا",
-    "grade": "الصف الدراسي",
-    "records": "سجلًا",
-    "conditionsLabel": "من المعلمين أفادوا بوجود عوائق تقنية.",
-    "conditionsDetail": "أظهرت المقابلات أن المعلمين لجؤوا إلى منصات بديلة وأنشطة ورقية لمواصلة تدريس مهارات ما وراء المعرفة.",
-    "outcomesLabel": "من المعلمين أفادوا بتحسّن مهارات ما وراء المعرفة لدى طلابهم.",
-    "outcomesDetail": "لاحظ المعلمون تحسّنًا في تعلّم الطلاب، رغم اختلاف طرق التنفيذ بين المدارس.",
-    "sourcePrefix": "المصادر:",
-    "proposalStatus": "(مقترح قُبل في مؤتمر ⁦AERA 2027⁩)",
-    "projectSources": "المقابلات والملاحظات الميدانية للمشروع",
-    "rightsReserved": "جميع الحقوق محفوظة.",
     "language": "اللغة",
     "colorMode": "ألوان ملائمة لعمى الألوان",
     "print": "طباعة / ⁦PDF⁩",
@@ -538,25 +531,22 @@ const translations = {
     "schools": "مدرسة",
     "countries": "دولة",
     "years": "سنوات",
-    "backgroundCopy": "تقييم طولي لمبادرة تعليمية عالمية يدرس التنفيذ والنتائج في سياقات مدرسية متنوعة."
+    "backgroundCopy": "تقييم طولي لمبادرة تعليمية عالمية يدرس التنفيذ والنتائج في سياقات مدرسية متنوعة.",
+    "rightsReserved": "جميع الحقوق محفوظة.",
+    "evidence-title": "كيف قِسنا التنفيذ والأثر",
+    "triangulate-heading": "المقارنة بين مصادر متعددة للأدلة",
+    "triangulate-copy": "قدّمت الاستبيانات والمقابلات والملاحظات ومقاييس النتائج وسجلات المنصة رؤى مختلفة عن البرنامج.",
+    "monitor-heading": "المتابعة المستمرة",
+    "monitor-copy": "أتاحت لوحات المتابعة والتقارير المخصّصة الرصد المستمر وتقديم الملاحظات في الوقت المناسب وإجراء التعديلات.",
+    "flexibility-heading": "الحفاظ على المرونة المحلية",
+    "flexibility-copy": "كيّفت المدارس والمعلمون التنفيذ مع الاحتياجات والأدوات المحلية، بينما اعتمد التقييم مقاييس مشتركة للمقارنة.",
+    "takeaway-heading": "الخلاصة",
+    "takeaway-copy": "يمكن تقييم البرامج العالمية بطريقة متسقة مع السماح باختلاف طرق تنفيذها."
   },
   "fr": {
     "documentTitle": "Métacognition à l’échelle mondiale — Synthèse stratégique",
     "decisionTitle": "Comment évaluer l’impact mondial en tenant compte des différences locales ?",
     "decisionCopy": "Les initiatives mondiales de développement professionnel, d’apprentissage et d’adoption de l’IA doivent concilier une évaluation cohérente avec la diversité des cultures, des ressources et des besoins organisationnels locaux.",
-    "evidenceTitle": "Des modes de mise en œuvre différents peuvent mener à des résultats positifs.",
-    "chartTitle": "Enregistrements de la plateforme numérique de métacognition par école et niveau scolaire",
-    "chartMeta": "2025–2026 · 11 écoles anonymisées · 2 488 enregistrements",
-    "grade": "Niveau",
-    "records": "enregistrements",
-    "conditionsLabel": "des enseignants ont signalé des obstacles technologiques.",
-    "conditionsDetail": "Les entretiens ont montré que les enseignants utilisaient d’autres plateformes et des activités sur papier pour poursuivre l’enseignement de la métacognition.",
-    "outcomesLabel": "des enseignants ont signalé une amélioration de la métacognition chez leurs élèves.",
-    "outcomesDetail": "Les enseignants ont perçu des progrès dans les apprentissages malgré des mises en œuvre différentes selon les écoles.",
-    "sourcePrefix": "Sources :",
-    "proposalStatus": "(proposition acceptée à l’AERA 2027)",
-    "projectSources": "Entretiens et observations du projet",
-    "rightsReserved": "Tous droits réservés.",
     "language": "Langue",
     "colorMode": "Mode daltonisme",
     "print": "Imprimer / PDF",
@@ -565,25 +555,22 @@ const translations = {
     "schools": "Écoles",
     "countries": "Pays",
     "years": "Ans",
-    "backgroundCopy": "Une évaluation longitudinale d’une initiative mondiale d’apprentissage qui examine sa mise en œuvre et ses résultats dans différents contextes scolaires."
+    "backgroundCopy": "Une évaluation longitudinale d’une initiative mondiale d’apprentissage qui examine sa mise en œuvre et ses résultats dans différents contextes scolaires.",
+    "rightsReserved": "Tous droits réservés.",
+    "evidence-title": "Comment nous avons mesuré la mise en œuvre et l’impact",
+    "triangulate-heading": "Croiser plusieurs sources",
+    "triangulate-copy": "Les enquêtes, entretiens, observations, mesures des résultats et traces de la plateforme ont éclairé le programme sous différents angles.",
+    "monitor-heading": "Suivre en continu",
+    "monitor-copy": "Les tableaux de bord et les rapports personnalisés ont facilité le suivi continu, les retours rapides et les ajustements.",
+    "flexibility-heading": "Préserver la souplesse locale",
+    "flexibility-copy": "Les écoles et les enseignants ont adapté le déploiement aux besoins et aux outils locaux, tandis que l’évaluation a conservé des mesures communes pour permettre les comparaisons.",
+    "takeaway-heading": "À retenir",
+    "takeaway-copy": "Les programmes mondiaux peuvent être évalués de façon cohérente tout en étant mis en œuvre différemment."
   },
   "ru": {
     "documentTitle": "Метапознание в мировом масштабе — краткий доклад",
     "decisionTitle": "Как оценить глобальный эффект с учётом местных различий?",
     "decisionCopy": "Глобальные инициативы по развитию сотрудников, обучению и внедрению ИИ требуют единообразной оценки с учётом различий в местной культуре, ресурсах и потребностях организаций.",
-    "evidenceTitle": "Разные способы внедрения могут приводить к положительным результатам.",
-    "chartTitle": "Записи на цифровой платформе метапознания по школам и классам",
-    "chartMeta": "2025–2026 · 11 школ без указания названий · 2 488 записей",
-    "grade": "Класс",
-    "records": "записи",
-    "conditionsLabel": "учителей сообщили о технологических барьерах.",
-    "conditionsDetail": "Интервью показали, что учителя использовали альтернативные платформы и задания на бумаге, чтобы продолжать обучение метапознанию.",
-    "outcomesLabel": "учителей сообщили об улучшении метапознания у учащихся.",
-    "outcomesDetail": "Учителя отмечали улучшения в обучении учащихся, хотя способы внедрения различались от школы к школе.",
-    "sourcePrefix": "Источники:",
-    "proposalStatus": "(заявка принята на AERA 2027)",
-    "projectSources": "Интервью и наблюдения в рамках проекта",
-    "rightsReserved": "Все права защищены.",
     "language": "Язык",
     "colorMode": "Режим для дальтонизма",
     "print": "Печать / PDF",
@@ -592,25 +579,22 @@ const translations = {
     "schools": "Школы",
     "countries": "Стран",
     "years": "Года",
-    "backgroundCopy": "Лонгитюдная оценка глобальной образовательной инициативы изучала её внедрение и результаты в разных школьных контекстах."
+    "backgroundCopy": "Лонгитюдная оценка глобальной образовательной инициативы изучала её внедрение и результаты в разных школьных контекстах.",
+    "rightsReserved": "Все права защищены.",
+    "evidence-title": "Как мы оценивали внедрение и эффект",
+    "triangulate-heading": "Сопоставлять разные источники данных",
+    "triangulate-copy": "Опросы, интервью, наблюдения, показатели результатов и записи платформы позволили рассмотреть программу с разных сторон.",
+    "monitor-heading": "Отслеживать внедрение непрерывно",
+    "monitor-copy": "Панели мониторинга и адаптированные отчёты помогали отслеживать ход работы, своевременно давать обратную связь и вносить изменения.",
+    "flexibility-heading": "Сохранять местную гибкость",
+    "flexibility-copy": "Школы и учителя адаптировали внедрение к местным потребностям и инструментам, а в оценке использовались общие показатели для сравнения.",
+    "takeaway-heading": "Главный вывод",
+    "takeaway-copy": "Глобальные программы можно оценивать единообразно при разных способах внедрения."
   },
   "es": {
     "documentTitle": "Metacognición a escala mundial — Resumen ejecutivo",
     "decisionTitle": "¿Cómo evaluamos el impacto global sin pasar por alto las diferencias locales?",
     "decisionCopy": "Las iniciativas globales de desarrollo profesional, aprendizaje y adopción de IA deben conciliar una evaluación coherente con la diversidad de culturas, recursos y necesidades organizativas locales.",
-    "evidenceTitle": "Distintas formas de implementación pueden dar resultados positivos.",
-    "chartTitle": "Registros de la plataforma digital de metacognición por escuela y grado",
-    "chartMeta": "2025–2026 · 11 escuelas anonimizadas · 2.488 registros",
-    "grade": "Grado",
-    "records": "registros",
-    "conditionsLabel": "de los docentes informó de barreras tecnológicas.",
-    "conditionsDetail": "Las entrevistas mostraron que los docentes recurrieron a plataformas alternativas y actividades en papel para seguir enseñando metacognición.",
-    "outcomesLabel": "de los docentes informó de mejoras en la metacognición del alumnado.",
-    "outcomesDetail": "Los docentes percibieron avances en el aprendizaje del alumnado pese a las diferencias de implementación entre escuelas.",
-    "sourcePrefix": "Fuentes:",
-    "proposalStatus": "(propuesta aceptada en AERA 2027)",
-    "projectSources": "Entrevistas y observaciones del proyecto",
-    "rightsReserved": "Todos los derechos reservados.",
     "language": "Idioma",
     "colorMode": "Modo para daltonismo",
     "print": "Imprimir / PDF",
@@ -619,7 +603,17 @@ const translations = {
     "schools": "Escuelas",
     "countries": "Países",
     "years": "Años",
-    "backgroundCopy": "Una evaluación longitudinal de una iniciativa global de aprendizaje que examina su implementación y sus resultados en distintos contextos escolares."
+    "backgroundCopy": "Una evaluación longitudinal de una iniciativa global de aprendizaje que examina su implementación y sus resultados en distintos contextos escolares.",
+    "rightsReserved": "Todos los derechos reservados.",
+    "evidence-title": "Cómo medimos la implementación y el impacto",
+    "triangulate-heading": "Contrastar múltiples fuentes",
+    "triangulate-copy": "Las encuestas, entrevistas, observaciones, medidas de resultados y registros de la plataforma aportaron distintas perspectivas sobre el programa.",
+    "monitor-heading": "Hacer un seguimiento continuo",
+    "monitor-copy": "Los paneles y los informes personalizados facilitaron el seguimiento continuo, la retroalimentación oportuna y los ajustes.",
+    "flexibility-heading": "Mantener la flexibilidad local",
+    "flexibility-copy": "Las escuelas y el profesorado adaptaron la implementación a sus necesidades y herramientas, mientras que la evaluación mantuvo medidas comunes para la comparación.",
+    "takeaway-heading": "Conclusión",
+    "takeaway-copy": "Los programas globales pueden evaluarse de manera uniforme aunque se implementen de formas distintas."
   }
 };
 const toolbarLabels = {
@@ -631,12 +625,12 @@ const toolbarLabels = {
   es: 'Accesibilidad e impresión'
 };
 const pageLabels = {
-  en: ['The Challenge', 'The Evidence'],
-  zh: ['挑战', '研究证据'],
-  ar: ['التحدي', 'الأدلة'],
-  fr: ['Le défi', 'Données'],
-  ru: ['Задача', 'Данные'],
-  es: ['El desafío', 'Evidencia']
+  en: ['The Challenge', 'The Approach'],
+  zh: ['挑战', '评估方法'],
+  ar: ['التحدي', 'النهج'],
+  fr: ['Le défi', 'La démarche'],
+  ru: ['Задача', 'Подход'],
+  es: ['El desafío', 'El enfoque']
 };
 const labels = {
   en: ['Slide navigation', 'School'],
@@ -676,11 +670,7 @@ function setLanguage(locale) {
   document.querySelectorAll('[data-study-number]').forEach(stat => {
     stat.textContent = numberFormatter.format(Number(stat.dataset.studyNumber));
   });
-  const percentFormatter = new Intl.NumberFormat(locale === 'ar' ? 'ar-EG' : 'en', { style: 'percent' });
-  document.querySelectorAll('[data-percent]').forEach(stat => {
-    stat.querySelector('bdi').textContent = percentFormatter.format(Number(stat.dataset.percent) / 100);
-  });
-  const [navigation, school] = labels[locale];
+  const [navigation] = labels[locale];
   document.querySelector('.utility-bar').setAttribute('aria-label', toolbarLabels[locale]);
   document.querySelectorAll('.slide-pages').forEach(group => {
     group.setAttribute('aria-label', navigation);
@@ -690,9 +680,6 @@ function setLanguage(locale) {
       const tab = link.querySelector('.tab-name');
       if (tab) tab.textContent = name;
     });
-  });
-  document.querySelectorAll('tbody th').forEach((node, index) => {
-    node.textContent = school + ' ' + numberFormatter.format(index + 1);
   });
   remember('briefing-language', locale);
 }

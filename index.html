@@ -224,7 +224,6 @@ nav{column-gap:14px;row-gap:6px}
 }
 #decision::before,#decision::after{border-color:#f7d4a421}
 #decision::before{background:#f1be6c0a}#decision::after{background:#edba7006}
-.decision-summary{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(0,1fr);align-items:center;gap:4.2cqw;margin:auto 0}
 #decision .implication{
  width:auto;margin:0;padding:clamp(19px,2.9cqw,37px);
  border:1px solid var(--panel-border);border-radius:20px;
@@ -233,20 +232,18 @@ nav{column-gap:14px;row-gap:6px}
  backdrop-filter:blur(18px)
 }
 #decision .implication p{font-size:clamp(17px,1.71cqw,22px);line-height:1.57;color:var(--panel-text)}
-.decision-evidence{display:grid;gap:clamp(9px,1.2cqw,16px);min-width:0}
 
 
-.record-chart{display:grid;row-gap:.2rem;margin:0}
-.record-chart figcaption{font-size:clamp(15px,1.4cqw,19px)}
-.record-bars{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:clamp(3px,.65cqw,9px);padding:0;margin:.45rem 0 0;list-style:none}
-.record-bar{height:var(--height);align-self:end;border-radius:6px 6px 2px 2px;background:linear-gradient(0deg,var(--bar-low),var(--bar-high))}
-.record-bar.highlighted{background:linear-gradient(0deg,var(--bar-accent-low),var(--bar-accent-high))}
+
+
+
+
 @media screen and (max-width:740px){
- .decision-summary{grid-template-columns:1fr;gap:22px;margin:20px 0 0}
- .decision-evidence{gap:13px}
+
+
 }
 @media print{
- .decision-summary{gap:3.7cqw}
+
  #decision .implication{backdrop-filter:none;box-shadow:none}
  #decision .implication p{font-size:1.53cqw}
 
@@ -255,11 +252,11 @@ nav{column-gap:14px;row-gap:6px}
 #decision::before,#decision::after{display:none}
 
 #decision .implication p{font-size:clamp(20px,2.2cqw,29px);font-weight:500;line-height:1.52;letter-spacing:normal;text-wrap:pretty}
-.record-bars{height:clamp(78px,9.4cqw,120px);align-items:end;border-bottom:1px solid var(--bar-axis)}
-.record-chart{row-gap:.55rem}
+
+
 @media print{
  #decision .implication p{font-size:1.85cqw}
- .record-bars{height:8cqw}
+
 }
 /* Evidence layout */
 #evidence h2{max-width:23ch;font-size:4.1cqw}
@@ -363,17 +360,13 @@ nav{column-gap:14px;row-gap:6px}
  #evidence .finding .detail{line-height:1.42}
  #evidence .source{margin-top:.8cqw}
 }
-#decision .decision-evidence :is(.scope,figcaption){
- display:block;margin:0;color:var(--ink);
- font-size:clamp(17px,1.85cqw,24px);line-height:1.3;font-weight:400;letter-spacing:-.02em
-}
-#decision .decision-evidence .scope strong{color:var(--highlight);font:inherit;font-weight:750;unicode-bidi:isolate}
+
 @media screen and (min-width:1050px){
- #decision .scope-line{display:block;white-space:nowrap}
+
 }
 @media print{
- #decision .decision-evidence :is(.scope,figcaption){font-size:1.62cqw}
- #decision .scope-line{display:block}
+
+
 }
 @media screen and (min-width:741px) and (max-width:780px){
  #evidence .evidence-header h2{font-size:7.2cqw}
@@ -386,19 +379,49 @@ nav{column-gap:14px;row-gap:6px}
  font-size:max(11px,.85cqw);line-height:1.25
 }
 @media print{#evidence .copyright{font-size:.82cqw}}
+/* Challenge slide */
+#decision h1{max-width:29ch;text-wrap:balance}
+.decision-summary{display:grid;gap:clamp(12px,1.75cqw,23px);margin:auto 0}
+#decision .implication{padding:clamp(15px,1.55cqw,21px) clamp(18px,2.2cqw,29px)}
+#decision .implication p{font-size:clamp(16px,1.62cqw,21px);line-height:1.43}
+#decision .decision-summary h2{
+ margin:0 0 .65cqw;color:var(--accent);font-size:clamp(12px,1.15cqw,15px);
+ font-weight:750;letter-spacing:.075em;line-height:1.2;text-transform:uppercase
+}
+.project-background{border-top:1px solid var(--line);padding-top:clamp(10px,1.2cqw,16px)}
+.project-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:.65cqw 0}
+.project-facts>div{display:flex;flex-direction:column-reverse;align-items:flex-start}
+.project-facts dd{margin:0;color:var(--highlight);font-size:clamp(29px,4.05cqw,54px);font-weight:750;line-height:1}
+.project-facts dt,#background-copy{color:var(--muted);font-size:clamp(13px,1.22cqw,16px);line-height:1.4}
+.project-facts dt{margin-top:.25em}
+#background-copy{margin-top:.45em}
+@media screen and (max-width:740px){
+ .decision-summary{margin:14px 0 0}
+ #decision .decision-summary h2{margin-bottom:7px}
+}
+@media print{
+ #decision .implication p{font-size:1.52cqw}
+ #decision .decision-summary h2{font-size:1.1cqw}
+ .project-facts dt,#background-copy{font-size:1.15cqw}
+}
 </style></head>
 <body><main>
 <section id="decision" aria-labelledby="decision-title"><div class="frame">
-<div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="01 · The Takeaway" aria-current="page">01 <span class="tab-name">The Takeaway</span></a><a href="#evidence" data-page="evidence" aria-label="Evidence">02</a></div>
-<h1 id="decision-title">Scaling globally doesn&rsquo;t<br class="title-break"> mean implementing identically.</h1>
+<div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="01 · The Challenge" aria-current="page">01 <span class="tab-name">The Challenge</span></a><a href="#evidence" data-page="evidence" aria-label="Evidence">02</a></div>
+<h1 id="decision-title">How do we evaluate global impact without ignoring local differences?</h1>
 <div class="decision-summary">
-<div class="implication"><p>For Google&rsquo;s global initiatives, meaningful comparisons require standardized measurement, not identical implementation. Evaluating performance and effectiveness also requires understanding local resources, cultural context, and organizational support.</p></div>
-<div class="decision-evidence">
-<p id="study-scope" class="scope"><span class="scope-line">A global metacognition education initiative</span> <span class="scope-line">spanning <strong>30+</strong> schools, <strong>20+</strong> countries,</span> <span class="scope-line">and <strong>3+</strong> years.</span></p>
-<figure class="record-chart">
-<div class="record-bars" dir="ltr" aria-hidden="true"><span class="record-bar" style="--height:19%"></span><span class="record-bar" style="--height:43%"></span><span class="record-bar" style="--height:29%"></span><span class="record-bar" style="--height:68%"></span><span class="record-bar" style="--height:36%"></span><span class="record-bar highlighted" style="--height:88%"></span><span class="record-bar" style="--height:54%"></span><span class="record-bar highlighted" style="--height:100%"></span><span class="record-bar" style="--height:31%"></span><span class="record-bar highlighted" style="--height:72%"></span></div>
-<figcaption id="record-title">Implementation varied widely across schools.</figcaption>
-</figure>
+<div class="implication">
+<h2 id="google-heading">Why this matters to Google</h2>
+<p>Global initiatives in employee development, learning, and AI adoption must balance consistent evaluation with diverse local cultures, resources, and organizational needs.</p>
+</div>
+<div class="project-background">
+<h2 id="background-heading">Project background</h2>
+<dl class="project-facts">
+<div><dt id="schools-label">Schools</dt><dd data-study-number="34">34</dd></div>
+<div><dt id="countries-label">Countries</dt><dd data-study-number="20">20</dd></div>
+<div><dt id="years-label">Years</dt><dd data-study-number="3">3</dd></div>
+</dl>
+<p id="background-copy">A longitudinal evaluation of a global learning initiative, examining implementation and outcomes across diverse school contexts.</p>
 </div>
 </div>
 </div></section>
@@ -440,7 +463,6 @@ const textTargets = {
   "decisionTitle": "#decision-title",
   "decisionCopy": ".implication p",
   "evidenceTitle": "#evidence-title",
-  "studyScope": "#study-scope",
   "chartTitle": "#chart-title",
   "chartMeta": "#chart-meta",
   "grade": "thead th:first-child",
@@ -456,15 +478,19 @@ const textTargets = {
   "language": "#language-label",
   "colorMode": "#color-mode",
   "print": "#print",
-  "recordTitle": "#record-title"
+  "googleHeading": "#google-heading",
+  "backgroundHeading": "#background-heading",
+  "schools": "#schools-label",
+  "countries": "#countries-label",
+  "years": "#years-label",
+  "backgroundCopy": "#background-copy"
 };
 const translations = {
   "zh": {
     "documentTitle": "全球元认知项目｜高管简报",
-    "decisionTitle": "全球推广，无需各地照搬同一做法。",
-    "decisionCopy": "对于 Google 的全球项目，有意义的比较需要统一测量标准，而非统一实施方式。评估项目表现与成效，还需要了解当地资源、文化背景和组织支持。",
+    "decisionTitle": "如何评估全球影响，同时兼顾各地差异？",
+    "decisionCopy": "全球员工发展、学习和 AI 推广项目，需要在统一评估与各地不同的文化、资源和组织需求之间取得平衡。",
     "evidenceTitle": "不同的实施路径仍可带来积极成果。",
-    "studyScope": "一项覆盖 30+ 所学校、20+ 个国家、历时 3+ 年的全球元认知教育项目。",
     "chartTitle": "按学校和年级统计的元认知数字平台记录",
     "chartMeta": "2025–26 学年 · 11 所匿名学校 · 2,488 条记录",
     "grade": "年级",
@@ -480,14 +506,18 @@ const translations = {
     "language": "语言",
     "colorMode": "色觉友好模式",
     "print": "打印 / PDF",
-    "recordTitle": "各校的实施情况差异很大。"
+    "googleHeading": "为什么这对 Google 重要",
+    "backgroundHeading": "项目背景",
+    "schools": "所学校",
+    "countries": "个国家",
+    "years": "年",
+    "backgroundCopy": "这项纵向评估研究了一个全球学习项目在不同学校情境中的实施情况和成果。"
   },
   "ar": {
     "documentTitle": "مبادرة عالمية لما وراء المعرفة — موجز تنفيذي",
-    "decisionTitle": "التوسع عالميًا لا يعني توحيد طريقة التنفيذ.",
-    "decisionCopy": "في مبادرات ⁦Google⁩ العالمية، تتطلب المقارنات ذات المعنى توحيد القياس، لا توحيد طريقة التنفيذ. ويتطلب تقييم الأداء والفعالية أيضًا فهم الموارد المحلية والسياق الثقافي والدعم المؤسسي.",
+    "decisionTitle": "كيف نقيّم الأثر العالمي من دون إغفال الفروق المحلية؟",
+    "decisionCopy": "تتطلب المبادرات العالمية في تطوير الموظفين والتعلّم وتبنّي الذكاء الاصطناعي الموازنة بين اتساق التقييم وتنوّع الثقافات والموارد والاحتياجات المؤسسية المحلية.",
     "evidenceTitle": "قد تؤدي مسارات التنفيذ المختلفة إلى نتائج إيجابية.",
-    "studyScope": "مبادرة عالمية لتعليم مهارات ما وراء المعرفة امتدت ٣ سنوات فأكثر، وشملت ٣٠ مدرسة فأكثر في ٢٠ دولة فأكثر.",
     "chartTitle": "سجلات المنصة الرقمية لما وراء المعرفة بحسب المدرسة والصف الدراسي",
     "chartMeta": "⁦٢٠٢٥–٢٠٢٦⁩ · ١١ مدرسة لم تُذكر أسماؤها · ٢٬٤٨٨ سجلًا",
     "grade": "الصف الدراسي",
@@ -503,14 +533,18 @@ const translations = {
     "language": "اللغة",
     "colorMode": "ألوان ملائمة لعمى الألوان",
     "print": "طباعة / ⁦PDF⁩",
-    "recordTitle": "تفاوتت طرق التنفيذ بدرجة كبيرة بين المدارس."
+    "googleHeading": "لماذا يهمّ هذا Google؟",
+    "backgroundHeading": "خلفية المشروع",
+    "schools": "مدرسة",
+    "countries": "دولة",
+    "years": "سنوات",
+    "backgroundCopy": "تقييم طولي لمبادرة تعليمية عالمية يدرس التنفيذ والنتائج في سياقات مدرسية متنوعة."
   },
   "fr": {
     "documentTitle": "Métacognition à l’échelle mondiale — Synthèse stratégique",
-    "decisionTitle": "Un déploiement mondial n’exige pas une mise en œuvre uniforme.",
-    "decisionCopy": "Pour les initiatives mondiales de Google, des comparaisons pertinentes exigent des mesures standardisées, sans imposer une mise en œuvre identique. Évaluer la performance et l’efficacité exige aussi de comprendre les ressources locales, le contexte culturel et le soutien organisationnel.",
+    "decisionTitle": "Comment évaluer l’impact mondial en tenant compte des différences locales ?",
+    "decisionCopy": "Les initiatives mondiales de développement professionnel, d’apprentissage et d’adoption de l’IA doivent concilier une évaluation cohérente avec la diversité des cultures, des ressources et des besoins organisationnels locaux.",
     "evidenceTitle": "Des modes de mise en œuvre différents peuvent mener à des résultats positifs.",
-    "studyScope": "Une initiative mondiale d’éducation à la métacognition couvrant au moins 30 écoles et 20 pays sur 3 ans ou plus.",
     "chartTitle": "Enregistrements de la plateforme numérique de métacognition par école et niveau scolaire",
     "chartMeta": "2025–2026 · 11 écoles anonymisées · 2 488 enregistrements",
     "grade": "Niveau",
@@ -526,14 +560,18 @@ const translations = {
     "language": "Langue",
     "colorMode": "Mode daltonisme",
     "print": "Imprimer / PDF",
-    "recordTitle": "La mise en œuvre a beaucoup varié d’une école à l’autre."
+    "googleHeading": "Pourquoi c’est important pour Google",
+    "backgroundHeading": "Contexte du projet",
+    "schools": "Écoles",
+    "countries": "Pays",
+    "years": "Ans",
+    "backgroundCopy": "Une évaluation longitudinale d’une initiative mondiale d’apprentissage qui examine sa mise en œuvre et ses résultats dans différents contextes scolaires."
   },
   "ru": {
     "documentTitle": "Метапознание в мировом масштабе — краткий доклад",
-    "decisionTitle": "Масштабирование по всему миру не требует одинакового внедрения.",
-    "decisionCopy": "Для содержательного сравнения глобальных инициатив Google нужны стандартизированные измерения, а не одинаковое внедрение. Для оценки результативности и эффективности также важно понимать местные ресурсы, культурный контекст и организационную поддержку.",
+    "decisionTitle": "Как оценить глобальный эффект с учётом местных различий?",
+    "decisionCopy": "Глобальные инициативы по развитию сотрудников, обучению и внедрению ИИ требуют единообразной оценки с учётом различий в местной культуре, ресурсах и потребностях организаций.",
     "evidenceTitle": "Разные способы внедрения могут приводить к положительным результатам.",
-    "studyScope": "Глобальная образовательная инициатива по метапознанию: не менее 30 школ и 20 стран за 3 года или более.",
     "chartTitle": "Записи на цифровой платформе метапознания по школам и классам",
     "chartMeta": "2025–2026 · 11 школ без указания названий · 2 488 записей",
     "grade": "Класс",
@@ -549,14 +587,18 @@ const translations = {
     "language": "Язык",
     "colorMode": "Режим для дальтонизма",
     "print": "Печать / PDF",
-    "recordTitle": "Внедрение существенно различалось от школы к школе."
+    "googleHeading": "Почему это важно для Google",
+    "backgroundHeading": "О проекте",
+    "schools": "Школы",
+    "countries": "Стран",
+    "years": "Года",
+    "backgroundCopy": "Лонгитюдная оценка глобальной образовательной инициативы изучала её внедрение и результаты в разных школьных контекстах."
   },
   "es": {
     "documentTitle": "Metacognición a escala mundial — Resumen ejecutivo",
-    "decisionTitle": "Escalar globalmente no exige implementar del mismo modo en todas partes.",
-    "decisionCopy": "Para las iniciativas globales de Google, las comparaciones útiles requieren mediciones estandarizadas, no una implementación idéntica. Evaluar el rendimiento y la eficacia también exige comprender los recursos locales, el contexto cultural y el apoyo organizativo.",
+    "decisionTitle": "¿Cómo evaluamos el impacto global sin pasar por alto las diferencias locales?",
+    "decisionCopy": "Las iniciativas globales de desarrollo profesional, aprendizaje y adopción de IA deben conciliar una evaluación coherente con la diversidad de culturas, recursos y necesidades organizativas locales.",
     "evidenceTitle": "Distintas formas de implementación pueden dar resultados positivos.",
-    "studyScope": "Una iniciativa mundial de educación metacognitiva que abarca al menos 30 escuelas y 20 países a lo largo de 3 años o más.",
     "chartTitle": "Registros de la plataforma digital de metacognición por escuela y grado",
     "chartMeta": "2025–2026 · 11 escuelas anonimizadas · 2.488 registros",
     "grade": "Grado",
@@ -572,7 +614,12 @@ const translations = {
     "language": "Idioma",
     "colorMode": "Modo para daltonismo",
     "print": "Imprimir / PDF",
-    "recordTitle": "La implementación varió considerablemente entre las escuelas."
+    "googleHeading": "Por qué le importa a Google",
+    "backgroundHeading": "Contexto del proyecto",
+    "schools": "Escuelas",
+    "countries": "Países",
+    "years": "Años",
+    "backgroundCopy": "Una evaluación longitudinal de una iniciativa global de aprendizaje que examina su implementación y sus resultados en distintos contextos escolares."
   }
 };
 const toolbarLabels = {
@@ -584,12 +631,12 @@ const toolbarLabels = {
   es: 'Accesibilidad e impresión'
 };
 const pageLabels = {
-  en: ['The Takeaway', 'The Evidence'],
-  zh: ['核心结论', '研究证据'],
-  ar: ['الخلاصة', 'الأدلة'],
-  fr: ['Conclusion', 'Données'],
-  ru: ['Главный вывод', 'Данные'],
-  es: ['Conclusión', 'Evidencia']
+  en: ['The Challenge', 'The Evidence'],
+  zh: ['挑战', '研究证据'],
+  ar: ['التحدي', 'الأدلة'],
+  fr: ['Le défi', 'Données'],
+  ru: ['Задача', 'Данные'],
+  es: ['El desafío', 'Evidencia']
 };
 const labels = {
   en: ['Slide navigation', 'School'],
@@ -623,22 +670,12 @@ function setLanguage(locale) {
       node.replaceChildren(...Array.from(original.childNodes, child => child.cloneNode(true)));
       return;
     }
-    if (node.id === 'study-scope') {
-      node.replaceChildren();
-      for (const piece of messages[key].split(/(\p{Nd}+\+?)/u)) {
-        if (/^\p{Nd}+\+?$/u.test(piece)) {
-          const emphasis = document.createElement('strong');
-          emphasis.textContent = piece;
-          node.append(emphasis);
-        } else {
-          node.append(piece);
-        }
-      }
-      return;
-    }
     node.textContent = messages[key];
   });
   const numberFormatter = new Intl.NumberFormat(locale === 'ar' ? 'ar-EG' : 'en');
+  document.querySelectorAll('[data-study-number]').forEach(stat => {
+    stat.textContent = numberFormatter.format(Number(stat.dataset.studyNumber));
+  });
   const percentFormatter = new Intl.NumberFormat(locale === 'ar' ? 'ar-EG' : 'en', { style: 'percent' });
   document.querySelectorAll('[data-percent]').forEach(stat => {
     stat.querySelector('bdi').textContent = percentFormatter.format(Number(stat.dataset.percent) / 100);

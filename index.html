@@ -374,16 +374,16 @@ nav{column-gap:14px;row-gap:6px}
 }
 [dir="rtl"] .finding-number bdi{white-space:nowrap}
 [dir="rtl"] #chart-meta{unicode-bidi:isolate}
-#evidence .copyright{
- margin:.32em 0 0;text-align:end;color:var(--secondary-text);
+#decision .copyright,#evidence .copyright{
+ margin:0;text-align:center;color:var(--secondary-text);
  font-size:max(11px,.85cqw);line-height:1.25
 }
-@media print{#evidence .copyright{font-size:.82cqw}}
+@media print{#decision .copyright,#evidence .copyright{font-size:.82cqw}}
 /* Challenge slide */
 #decision h1{max-width:29ch;text-wrap:balance}
 .decision-summary{display:grid;gap:clamp(12px,1.75cqw,23px);margin:auto 0}
 #decision .implication{padding:clamp(15px,1.55cqw,21px) clamp(18px,2.2cqw,29px)}
-#decision .implication p{font-size:clamp(16px,1.62cqw,21px);line-height:1.43}
+#decision .implication p{font-size:clamp(19px,1.95cqw,26px);line-height:1.43}
 #decision .decision-summary h2{
  margin:0 0 .65cqw;color:var(--accent);font-size:clamp(12px,1.15cqw,15px);
  font-weight:750;letter-spacing:.075em;line-height:1.2;text-transform:uppercase
@@ -400,7 +400,7 @@ nav{column-gap:14px;row-gap:6px}
  #decision .decision-summary h2{margin-bottom:7px}
 }
 @media print{
- #decision .implication p{font-size:1.52cqw}
+ #decision .implication p{font-size:1.73cqw}
  #decision .decision-summary h2{font-size:1.1cqw}
  .project-facts dt,#background-copy{font-size:1.15cqw}
 }
@@ -415,14 +415,14 @@ nav{column-gap:14px;row-gap:6px}
 .approach-art{height:clamp(40px,7cqw,90px);border-bottom:1px solid var(--line);margin-bottom:1.05cqw}
 .approach-steps h3{color:var(--ink);font-size:clamp(16px,1.78cqw,24px);line-height:1.2}
 .approach-steps p{color:var(--muted);font-size:clamp(14px,1.36cqw,18px);line-height:1.48;margin-top:.5em}
-.approach-takeaway{border-top:1px solid var(--line);padding-top:.8cqw}
-.approach-takeaway h3{color:var(--ink);font-size:clamp(19px,2cqw,27px);line-height:1.25}
-.approach-steps .approach-point{color:var(--highlight);font-weight:650}
+
+
+
 @media screen and (max-width:740px){
  #evidence #evidence-title{font-size:7.2cqw}
  .approach-steps{grid-template-columns:1fr;gap:18px;margin:15px 0}
  .approach-art{margin-bottom:8px}
- .approach-takeaway{padding-top:12px}
+
 }
 @media print{
  #evidence #evidence-title{font-size:4.5cqw}
@@ -436,7 +436,7 @@ nav{column-gap:14px;row-gap:6px}
 <div class="decision-summary">
 <div class="implication">
 <h2 id="google-heading">Why this matters to Google</h2>
-<p>Global initiatives in employee development, learning, and AI adoption must balance consistent evaluation with diverse local cultures, resources, and organizational needs.</p>
+<p>For Google’s global initiatives—from AI adoption to employee training and development—meaningful evaluation requires comparable evidence while accounting for differences in local cultures, resources, and implementation.</p>
 </div>
 <div class="project-background">
 <h2 id="background-heading">Project background</h2>
@@ -448,16 +448,17 @@ nav{column-gap:14px;row-gap:6px}
 <p id="background-copy">A longitudinal evaluation of a global learning initiative, examining implementation and outcomes across diverse school contexts.</p>
 </div>
 </div>
+<p class="copyright"><bdi dir="ltr">&copy; 2026 Zhexun Xin.</bdi> <span class="rights-reserved">All rights reserved.</span></p>
 </div></section>
 <section id="evidence" aria-labelledby="evidence-title"><div class="frame">
 <div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="Decision">01</a><a href="#evidence" data-page="evidence" aria-label="02 · THE APPROACH" aria-current="page">02 <span class="tab-name">THE APPROACH</span></a></div>
-<h2 id="evidence-title">How we measured implementation and impact</h2>
+<h2 id="evidence-title">A fuller understanding of impact, at every level.</h2>
 <div class="approach-steps">
-<div class="approach-column"><div class="approach-art" aria-hidden="true"></div><h3 id="evidence-sources-heading">Across evidence sources</h3><p id="evidence-sources-copy">Surveys, interviews, observations, platform records, and outcomes.</p><p class="approach-point" id="evidence-sources-point">Understand the full picture.</p></div>
-<div class="approach-column"><div class="approach-art" aria-hidden="true"></div><h3 id="evaluation-levels-heading">Across evaluation levels</h3><p id="evaluation-levels-copy">Global trends, school-level insights, and individual outcomes.</p><p class="approach-point" id="evaluation-levels-point">Understand where and for whom it matters.</p></div>
+<div class="approach-column"><div class="approach-art" aria-hidden="true"></div><h3 id="evidence-sources-heading">Across evidence sources</h3><p id="evidence-sources-copy">Surveys, interviews, observations, platform records, and outcomes.</p></div>
+<div class="approach-column"><div class="approach-art" aria-hidden="true"></div><h3 id="evaluation-levels-heading">Across evaluation levels</h3><p id="evaluation-levels-copy">Global trends, school-level insights, and individual outcomes.</p></div>
 </div>
-<div class="approach-takeaway"><h3 id="takeaway-copy">A fuller understanding of impact, at every level.</h3></div>
-<p class="copyright"><bdi dir="ltr">&copy; 2026 Zhexun Xin.</bdi> <span id="rights-reserved">All rights reserved.</span></p>
+
+<p class="copyright"><bdi dir="ltr">&copy; 2026 Zhexun Xin.</bdi> <span class="rights-reserved">All rights reserved.</span></p>
 </div></section>
 </main>
 <nav class="utility-bar" aria-label="Accessibility and print">
@@ -481,21 +482,18 @@ const textTargets = {
   "countries": "#countries-label",
   "years": "#years-label",
   "backgroundCopy": "#background-copy",
-  "rightsReserved": "#rights-reserved",
+  "rightsReserved": ".rights-reserved",
   "evidence-title": "#evidence-title",
   "evidence-sources-heading": "#evidence-sources-heading",
   "evidence-sources-copy": "#evidence-sources-copy",
-  "evidence-sources-point": "#evidence-sources-point",
   "evaluation-levels-heading": "#evaluation-levels-heading",
-  "evaluation-levels-copy": "#evaluation-levels-copy",
-  "evaluation-levels-point": "#evaluation-levels-point",
-  "takeaway-copy": "#takeaway-copy"
-}
+  "evaluation-levels-copy": "#evaluation-levels-copy"
+};
 const translations = {
   "zh": {
     "documentTitle": "全球元认知项目｜高管简报",
     "decisionTitle": "如何评估全球影响，同时兼顾各地差异？",
-    "decisionCopy": "全球员工发展、学习和 AI 推广项目，需要在统一评估与各地不同的文化、资源和组织需求之间取得平衡。",
+    "decisionCopy": "对于 Google 从 AI 推广到员工培训与发展的各类全球项目，有意义的评估需要可比较的证据，同时也要考虑当地文化、资源及实施方式的差异。",
     "language": "语言",
     "colorMode": "色觉友好模式",
     "print": "打印 / PDF",
@@ -506,19 +504,16 @@ const translations = {
     "years": "年",
     "backgroundCopy": "这项纵向评估研究了一个全球学习项目在不同学校情境中的实施情况和成果。",
     "rightsReserved": "保留所有权利。",
-    "evidence-title": "我们如何衡量实施与成效",
+    "evidence-title": "更全面地理解各个层级的影响。",
     "evidence-sources-heading": "跨证据来源",
     "evidence-sources-copy": "问卷、访谈、观察、平台记录和成果数据。",
-    "evidence-sources-point": "了解全貌。",
     "evaluation-levels-heading": "跨评估层级",
-    "evaluation-levels-copy": "全球趋势、学校层面的洞察和个体成果。",
-    "evaluation-levels-point": "了解影响体现在哪里、对谁重要。",
-    "takeaway-copy": "更全面地理解各个层级的影响。"
+    "evaluation-levels-copy": "全球趋势、学校层面的洞察和个体成果。"
   },
   "ar": {
     "documentTitle": "مبادرة عالمية لما وراء المعرفة — موجز تنفيذي",
     "decisionTitle": "كيف نقيّم الأثر العالمي من دون إغفال الفروق المحلية؟",
-    "decisionCopy": "تتطلب المبادرات العالمية في تطوير الموظفين والتعلّم وتبنّي الذكاء الاصطناعي الموازنة بين اتساق التقييم وتنوّع الثقافات والموارد والاحتياجات المؤسسية المحلية.",
+    "decisionCopy": "تتطلب مبادرات Google العالمية، من تبنّي الذكاء الاصطناعي إلى تدريب الموظفين وتطويرهم، أدلة قابلة للمقارنة لإجراء تقييم ذي معنى، مع مراعاة الاختلافات في الثقافات والموارد وطرق التنفيذ محليًا.",
     "language": "اللغة",
     "colorMode": "ألوان ملائمة لعمى الألوان",
     "print": "طباعة / ⁦PDF⁩",
@@ -529,19 +524,16 @@ const translations = {
     "years": "سنوات",
     "backgroundCopy": "تقييم طولي لمبادرة تعليمية عالمية يدرس التنفيذ والنتائج في سياقات مدرسية متنوعة.",
     "rightsReserved": "جميع الحقوق محفوظة.",
-    "evidence-title": "كيف قِسنا التنفيذ والأثر",
+    "evidence-title": "فهم أشمل للأثر على كل مستوى.",
     "evidence-sources-heading": "عبر مصادر الأدلة",
     "evidence-sources-copy": "الاستبيانات والمقابلات والملاحظات وسجلات المنصة والنتائج.",
-    "evidence-sources-point": "فهم الصورة الكاملة.",
     "evaluation-levels-heading": "عبر مستويات التقييم",
-    "evaluation-levels-copy": "الاتجاهات العالمية والرؤى على مستوى المدارس والنتائج الفردية.",
-    "evaluation-levels-point": "فهم أين يظهر الأثر ولمن يهمّ.",
-    "takeaway-copy": "فهم أشمل للأثر على كل مستوى."
+    "evaluation-levels-copy": "الاتجاهات العالمية والرؤى على مستوى المدارس والنتائج الفردية."
   },
   "fr": {
     "documentTitle": "Métacognition à l’échelle mondiale — Synthèse stratégique",
     "decisionTitle": "Comment évaluer l’impact mondial en tenant compte des différences locales ?",
-    "decisionCopy": "Les initiatives mondiales de développement professionnel, d’apprentissage et d’adoption de l’IA doivent concilier une évaluation cohérente avec la diversité des cultures, des ressources et des besoins organisationnels locaux.",
+    "decisionCopy": "Pour les initiatives mondiales de Google, de l’adoption de l’IA à la formation et au développement du personnel, une évaluation pertinente exige des données comparables tout en tenant compte des différences locales de culture, de ressources et de mise en œuvre.",
     "language": "Langue",
     "colorMode": "Mode daltonisme",
     "print": "Imprimer / PDF",
@@ -552,19 +544,16 @@ const translations = {
     "years": "Ans",
     "backgroundCopy": "Une évaluation longitudinale d’une initiative mondiale d’apprentissage qui examine sa mise en œuvre et ses résultats dans différents contextes scolaires.",
     "rightsReserved": "Tous droits réservés.",
-    "evidence-title": "Comment nous avons mesuré la mise en œuvre et l’impact",
+    "evidence-title": "Une compréhension plus complète de l’impact à chaque niveau.",
     "evidence-sources-heading": "Croiser les sources de données",
     "evidence-sources-copy": "Enquêtes, entretiens, observations, données de la plateforme et résultats.",
-    "evidence-sources-point": "Comprendre la situation dans son ensemble.",
     "evaluation-levels-heading": "Explorer les niveaux d’évaluation",
-    "evaluation-levels-copy": "Tendances mondiales, enseignements à l’échelle des écoles et résultats individuels.",
-    "evaluation-levels-point": "Comprendre où l’impact se manifeste et pour qui il compte.",
-    "takeaway-copy": "Une compréhension plus complète de l’impact à chaque niveau."
+    "evaluation-levels-copy": "Tendances mondiales, enseignements à l’échelle des écoles et résultats individuels."
   },
   "ru": {
     "documentTitle": "Метапознание в мировом масштабе — краткий доклад",
     "decisionTitle": "Как оценить глобальный эффект с учётом местных различий?",
-    "decisionCopy": "Глобальные инициативы по развитию сотрудников, обучению и внедрению ИИ требуют единообразной оценки с учётом различий в местной культуре, ресурсах и потребностях организаций.",
+    "decisionCopy": "Для содержательной оценки глобальных инициатив Google, от внедрения ИИ до обучения и развития сотрудников, нужны сопоставимые данные и учёт местных различий в культуре, ресурсах и способах внедрения.",
     "language": "Язык",
     "colorMode": "Режим для дальтонизма",
     "print": "Печать / PDF",
@@ -575,19 +564,16 @@ const translations = {
     "years": "Года",
     "backgroundCopy": "Лонгитюдная оценка глобальной образовательной инициативы изучала её внедрение и результаты в разных школьных контекстах.",
     "rightsReserved": "Все права защищены.",
-    "evidence-title": "Как мы оценивали внедрение и эффект",
+    "evidence-title": "Более полное понимание эффекта на каждом уровне.",
     "evidence-sources-heading": "Разные источники данных",
     "evidence-sources-copy": "Опросы, интервью, наблюдения, записи платформы и результаты.",
-    "evidence-sources-point": "Увидеть полную картину.",
     "evaluation-levels-heading": "Разные уровни оценки",
-    "evaluation-levels-copy": "Глобальные тенденции, выводы на уровне школ и индивидуальные результаты.",
-    "evaluation-levels-point": "Понять, где и для кого это важно.",
-    "takeaway-copy": "Более полное понимание эффекта на каждом уровне."
+    "evaluation-levels-copy": "Глобальные тенденции, выводы на уровне школ и индивидуальные результаты."
   },
   "es": {
     "documentTitle": "Metacognición a escala mundial — Resumen ejecutivo",
     "decisionTitle": "¿Cómo evaluamos el impacto global sin pasar por alto las diferencias locales?",
-    "decisionCopy": "Las iniciativas globales de desarrollo profesional, aprendizaje y adopción de IA deben conciliar una evaluación coherente con la diversidad de culturas, recursos y necesidades organizativas locales.",
+    "decisionCopy": "Para las iniciativas globales de Google, desde la adopción de la IA hasta la formación y el desarrollo del personal, una evaluación significativa requiere evidencia comparable y debe tener en cuenta las diferencias locales de cultura, recursos e implementación.",
     "language": "Idioma",
     "colorMode": "Modo para daltonismo",
     "print": "Imprimir / PDF",
@@ -598,16 +584,13 @@ const translations = {
     "years": "Años",
     "backgroundCopy": "Una evaluación longitudinal de una iniciativa global de aprendizaje que examina su implementación y sus resultados en distintos contextos escolares.",
     "rightsReserved": "Todos los derechos reservados.",
-    "evidence-title": "Cómo medimos la implementación y el impacto",
+    "evidence-title": "Una comprensión más completa del impacto en todos los niveles.",
     "evidence-sources-heading": "Distintas fuentes de evidencia",
     "evidence-sources-copy": "Encuestas, entrevistas, observaciones, registros de la plataforma y resultados.",
-    "evidence-sources-point": "Comprender el panorama completo.",
     "evaluation-levels-heading": "Distintos niveles de evaluación",
-    "evaluation-levels-copy": "Tendencias globales, hallazgos por escuela y resultados individuales.",
-    "evaluation-levels-point": "Comprender dónde y para quién importa.",
-    "takeaway-copy": "Una comprensión más completa del impacto en todos los niveles."
+    "evaluation-levels-copy": "Tendencias globales, hallazgos por escuela y resultados individuales."
   }
-}
+};
 const toolbarLabels = {
   en: 'Accessibility and print',
   zh: '无障碍与打印',
@@ -632,10 +615,9 @@ const labels = {
   ru: ['Навигация по слайдам', 'Школа'],
   es: ['Navegación de diapositivas', 'Escuela']
 };
-const localizedNodes = Object.entries(textTargets).map(([key, selector]) => {
-  const node = document.querySelector(selector);
-  return { key, node, original: node.cloneNode(true) };
-});
+const localizedNodes = Object.entries(textTargets).flatMap(([key, selector]) =>
+  Array.from(document.querySelectorAll(selector), node => ({ key, node, original: node.cloneNode(true) }))
+);
 const language = document.querySelector('#language');
 const colorMode = document.querySelector('#color-mode');
 

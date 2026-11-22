@@ -426,16 +426,14 @@ nav{column-gap:14px;row-gap:6px}
 }
 /* Evaluation levels and their evidence sources */
 .evaluation-map{margin:auto 0;overflow-x:auto;direction:ltr}
-.evaluation-map svg{display:block;width:100%;max-width:1070px;min-width:630px;margin-inline:auto}
-.map-spine{stroke:var(--line);stroke-width:1.2;fill:none}
-.map-plane{fill:var(--accent);fill-opacity:.14;stroke:var(--accent);stroke-opacity:.69;stroke-width:1.35}
-.map-plane-edge{fill:var(--accent);fill-opacity:.19;stroke:var(--accent);stroke-opacity:.38}
+.evaluation-map svg{display:block;width:94%;max-width:1000px;min-width:630px;margin-inline:auto}
+.map-spine{stroke:url(#map-thread);stroke-width:1.4;fill:none}
+.map-plane{fill:url(#map-glass);stroke:var(--accent);stroke-opacity:.52;stroke-width:1;stroke-linejoin:round}
+.map-plane-edge{fill:var(--accent);fill-opacity:.18;stroke:none}
 .map-icon{fill:none;stroke:var(--highlight);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.map-icon.secondary{stroke:var(--accent)}
 .map-level,.map-source{font-family:inherit;fill:var(--ink)}
-.map-level{font-size:23px;font-weight:730;text-anchor:end}
-.map-source{font-size:19px;font-weight:550}
-.map-source.secondary{fill:var(--accent)}
+.map-level{font-size:22px;font-weight:660;text-anchor:end}
+.map-source{font-size:19px;font-weight:500;fill:var(--muted)}
 [lang="ar"] .map-level{direction:rtl;text-anchor:start}
 [lang="ar"] .map-source{direction:rtl;text-anchor:end}
 @media screen and (max-width:740px){.evaluation-map{margin:14px 0}}
@@ -446,6 +444,11 @@ nav{column-gap:14px;row-gap:6px}
 #decision .project-facts{row-gap:clamp(8px,.92cqw,13px)}
 #decision .project-facts dd{font-size:clamp(22px,3.05cqw,41px);white-space:nowrap;unicode-bidi:isolate}
 @media print{#decision .project-facts dd{font-size:2.8cqw}}
+.map-glass-light{stop-color:var(--accent);stop-opacity:.28}
+.map-glass-dark{stop-color:var(--accent);stop-opacity:.07}
+.map-thread-end{stop-color:var(--accent);stop-opacity:.14}
+.map-thread-center{stop-color:var(--accent);stop-opacity:.54}
+.map-icon-disc{fill:var(--surface);fill-opacity:.9;stroke:var(--accent);stroke-opacity:.23;stroke-width:1}
 </style></head>
 <body><main>
 <section id="decision" aria-labelledby="decision-title"><div class="frame">
@@ -473,46 +476,54 @@ nav{column-gap:14px;row-gap:6px}
 </div></section>
 <section id="evidence" aria-labelledby="evidence-title"><div class="frame">
 <div class="slide-pages" role="navigation" aria-label="Slide navigation"><a href="#decision" data-page="decision" aria-label="Decision">01</a><a href="#evidence" data-page="evidence" aria-label="02 · THE APPROACH" aria-current="page">02 <span class="tab-name">THE APPROACH</span></a></div>
-<h2 id="evidence-title">A fuller understanding of impact, at every level.</h2>
+<h2 id="evidence-title">A fuller understanding of impact,<br> at every level.</h2>
 <figure class="evaluation-map">
 <svg viewBox="0 0 1060 415" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="evaluation-map-title evaluation-map-desc">
 <title id="evaluation-map-title">Evidence sources by evaluation level</title>
 <desc id="evaluation-map-desc">Five aligned levels map specific evidence sources: global teacher and student surveys, school leadership interviews, classroom observations, grade-level platform usage records, and individual student test scores.</desc>
-<path class="map-spine" d="M228 59V368 M616 59V368"/>
+<defs>
+<linearGradient id="map-glass" x2="1" y2="1" gradientUnits="objectBoundingBox">
+<stop class="map-glass-light"/><stop class="map-glass-dark" offset="1"/>
+</linearGradient>
+<linearGradient id="map-thread" x1="0" x2="0" y2="1">
+<stop class="map-thread-end"/><stop class="map-thread-center" offset=".5"/><stop class="map-thread-end" offset="1"/>
+</linearGradient>
+</defs>
+<path class="map-spine" d="M423 58V368"/>
 <g class="map-layer">
-<polygon class="map-plane-edge" points="228,59 402,90 616,59 616,64 402,95 228,64"/>
-<polygon class="map-plane" points="228,59 442,29 616,59 402,90"/>
-<g class="map-icon" transform="translate(395 54)"><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-7h3m3 0h6m-12 6h3m3 0h6m-12 6h3m3 0h6"/></g><g class="map-icon secondary" transform="translate(451 54)"><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-7h3m3 0h6m-12 6h3m3 0h6m-12 6h3m3 0h6"/></g>
-<text class="map-level" x="203" y="64" id="level-global">Global</text>
-<text class="map-source" x="649" y="52" id="teacher-surveys">Teacher Surveys</text><text class="map-source secondary" x="649" y="74" id="student-surveys">Student Surveys</text>
+<polygon class="map-plane-edge" points="275,59 418,82 589,59 589,62 418,85 275,62"/>
+<polygon class="map-plane" points="275,59 446,36 589,59 418,82"/>
+<g class="map-icon" transform="translate(395 54)"><circle class="map-icon-disc" r="21"/><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-7h3m3 0h6m-12 6h3m3 0h6m-12 6h3m3 0h6"/></g><g class="map-icon" transform="translate(451 54)"><circle class="map-icon-disc" r="21"/><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-7h3m3 0h6m-12 6h3m3 0h6m-12 6h3m3 0h6"/></g>
+<text class="map-level" x="248" y="64" id="level-global">Global</text>
+<text class="map-source" x="621" y="52" id="teacher-surveys">Teacher Surveys</text><text class="map-source" x="621" y="74" id="student-surveys">Student Surveys</text>
 </g>
 <g class="map-layer">
-<polygon class="map-plane-edge" points="228,135 402,166 616,135 616,140 402,171 228,140"/>
-<polygon class="map-plane" points="228,135 442,105 616,135 402,166"/>
-<g class="map-icon" transform="translate(422 130)"><path d="M-15-12H7a4 4 0 0 1 4 4V3a4 4 0 0 1-4 4H-5l-7 5V7h-3a3 3 0 0 1-3-3V-9a3 3 0 0 1 3-3Z"/><path d="M14-4h3v13h-4v5l-6-5m-18-14H4m-15 5H1"/></g>
-<text class="map-level" x="203" y="140" id="level-school">School</text>
-<text class="map-source" x="649" y="140" id="leadership-interviews">Leadership Interviews</text>
+<polygon class="map-plane-edge" points="275,135 418,158 589,135 589,138 418,161 275,138"/>
+<polygon class="map-plane" points="275,135 446,112 589,135 418,158"/>
+<g class="map-icon" transform="translate(422 130)"><circle class="map-icon-disc" r="21"/><path d="M-15-12H7a4 4 0 0 1 4 4V3a4 4 0 0 1-4 4H-5l-7 5V7h-3a3 3 0 0 1-3-3V-9a3 3 0 0 1 3-3Z"/><path d="M14-4h3v13h-4v5l-6-5m-18-14H4m-15 5H1"/></g>
+<text class="map-level" x="248" y="140" id="level-school">School</text>
+<text class="map-source" x="621" y="140" id="leadership-interviews">Leadership Interviews</text>
 </g>
 <g class="map-layer">
-<polygon class="map-plane-edge" points="228,211 402,242 616,211 616,216 402,247 228,216"/>
-<polygon class="map-plane" points="228,211 442,181 616,211 402,242"/>
-<g class="map-icon" transform="translate(422 206)"><path d="M-18 0Q0-20 18 0 0 20-18 0Z"/><circle r="5.5"/></g>
-<text class="map-level" x="203" y="216" id="level-classroom">Classroom</text>
-<text class="map-source" x="649" y="216" id="classroom-observations">Classroom Observations</text>
+<polygon class="map-plane-edge" points="275,211 418,234 589,211 589,214 418,237 275,214"/>
+<polygon class="map-plane" points="275,211 446,188 589,211 418,234"/>
+<g class="map-icon" transform="translate(422 206)"><circle class="map-icon-disc" r="21"/><path d="M-18 0Q0-20 18 0 0 20-18 0Z"/><circle r="5.5"/></g>
+<text class="map-level" x="248" y="216" id="level-classroom">Classroom</text>
+<text class="map-source" x="621" y="216" id="classroom-observations">Classroom Observations</text>
 </g>
 <g class="map-layer">
-<polygon class="map-plane-edge" points="228,287 402,318 616,287 616,292 402,323 228,292"/>
-<polygon class="map-plane" points="228,287 442,257 616,287 402,318"/>
-<g class="map-icon" transform="translate(422 282)"><rect x="-16" y="-13" width="32" height="26" rx="3"/><path d="M-16-6h32M-9 6V1m8 5V-1m8 7V-4"/></g>
-<text class="map-level" x="203" y="292" id="level-grade">Grade</text>
-<text class="map-source" x="649" y="292" id="platform-records">Platform Usage Records</text>
+<polygon class="map-plane-edge" points="275,287 418,310 589,287 589,290 418,313 275,290"/>
+<polygon class="map-plane" points="275,287 446,264 589,287 418,310"/>
+<g class="map-icon" transform="translate(422 282)"><circle class="map-icon-disc" r="21"/><rect x="-16" y="-13" width="32" height="26" rx="3"/><path d="M-16-6h32M-9 6V1m8 5V-1m8 7V-4"/></g>
+<text class="map-level" x="248" y="292" id="level-grade">Grade</text>
+<text class="map-source" x="621" y="292" id="platform-records">Platform Usage Records</text>
 </g>
 <g class="map-layer">
-<polygon class="map-plane-edge" points="228,363 402,394 616,363 616,368 402,399 228,368"/>
-<polygon class="map-plane" points="228,363 442,333 616,363 402,394"/>
-<g class="map-icon" transform="translate(422 358)"><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-3l4 4 8-8M-6 6H6"/></g>
-<text class="map-level" x="203" y="368" id="level-individual">Individual</text>
-<text class="map-source" x="649" y="368" id="student-test-scores">Student Test Scores</text>
+<polygon class="map-plane-edge" points="275,363 418,386 589,363 589,366 418,389 275,366"/>
+<polygon class="map-plane" points="275,363 446,340 589,363 418,386"/>
+<g class="map-icon" transform="translate(422 358)"><circle class="map-icon-disc" r="21"/><rect x="-11" y="-15" width="22" height="29" rx="3"/><path d="M-6-3l4 4 8-8M-6 6H6"/></g>
+<text class="map-level" x="248" y="368" id="level-individual">Individual</text>
+<text class="map-source" x="621" y="368" id="student-test-scores">Student Test Scores</text>
 </g>
 </svg>
 </figure>

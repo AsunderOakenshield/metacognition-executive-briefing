@@ -527,6 +527,13 @@ nav{column-gap:14px;row-gap:6px}
  }
  #evidence .approach-layout .evaluation-map{align-self:center}
 }
+/* Use one spacing value for both sides of the Google callout. */
+#decision .frame{--challenge-gap:clamp(16px,2.4cqw,31px)}
+#decision #decision-title{margin-bottom:var(--challenge-gap)}
+#decision .decision-summary{margin:0;gap:var(--challenge-gap)}
+#decision .implication{transform:none}
+#decision .copyright{margin-top:auto;padding-top:.65cqw}
+@media print{#decision .frame{--challenge-gap:2.1cqw}}
 </style></head>
 <body><main>
 <section id="decision" aria-labelledby="decision-title"><div class="frame">
